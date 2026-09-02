@@ -107,9 +107,11 @@ export default function AboutPage() {
             <div className="leader-copy">
               <p className="eyebrow text-blue">Leadership</p>
               <h2 className="section-title mt-4">Dr. Amy Fu</h2>
-              <p className="leader-credentials">
-                P.E. · LEED AP BD+C · WELL AP
-              </p>
+              <ul className="leader-credentials" aria-label="Professional credentials">
+                <li>P.E.</li>
+                <li>LEED AP BD+C</li>
+                <li>WELL AP</li>
+              </ul>
               <div className="prose-large mt-8">
                 <p>
                   Dr. Amy Fu is the founder and president of Alpha Envirotech

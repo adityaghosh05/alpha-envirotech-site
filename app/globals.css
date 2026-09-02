@@ -207,7 +207,7 @@ img {
   text-transform: uppercase;
 }
 .text-blue {
-  color: var(--blue);
+  color: var(--navy);
 }
 .hero-title {
   max-width: 780px;
@@ -862,11 +862,21 @@ img {
   color: var(--green);
 }
 .leader-credentials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
   margin-top: 1.2rem;
-  color: var(--blue);
+  padding: 0;
+  color: var(--navy);
   font-size: 1.05rem;
   font-weight: 800;
   letter-spacing: 0.06em;
+  list-style: none;
+}
+.leader-credentials li + li {
+  border-left: 2px solid var(--green);
+  padding-left: 0.65rem;
 }
 .leader-portrait {
   overflow: hidden;
