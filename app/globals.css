@@ -80,7 +80,8 @@ img {
   margin-inline: auto;
 }
 .site-header {
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 30;
   border-bottom: 1px solid rgb(255 255 255 / 12%);
   background: var(--navy);
