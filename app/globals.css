@@ -58,6 +58,7 @@ html {
 }
 body {
   margin: 0;
+  padding-top: 76px;
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-body), Arial, sans-serif;
@@ -80,7 +81,8 @@ img {
   margin-inline: auto;
 }
 .site-header {
-  position: sticky;
+  position: fixed;
+  inset: 0 0 auto;
   top: 0;
   z-index: 30;
   border-bottom: 1px solid rgb(255 255 255 / 12%);
