@@ -31,7 +31,7 @@ export default function AboutPage() {
           eyebrow="About Alpha Envirotech"
           title="Prepared to solve the complicated part."
           description="Founded in Jacksonville in 2010, AEC helps public and private clients move complex environmental work toward practical, responsible outcomes."
-          image="wetland"
+          image="about"
         />
         <section className="section section-white">
           <div className="site-shell story-layout">

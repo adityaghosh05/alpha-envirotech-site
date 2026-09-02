@@ -2,11 +2,12 @@ type PageHeroProps = {
   eyebrow: string;
   title: string;
   description: string;
-  image: 'wetland' | 'construction' | 'engineering';
+  image: 'wetland' | 'about' | 'construction' | 'engineering';
 };
 
 const sources = {
   wetland: ['/images/wetland-landscape.webp', '/images/wetland-landscape.jpg'],
+  about: ['/images/about-wetland-viewing.webp', '/images/about-wetland-viewing.jpg'],
   construction: ['/images/construction.webp', '/images/construction.jpg'],
   engineering: [
     '/images/engineering-hero-upscaled.webp',
