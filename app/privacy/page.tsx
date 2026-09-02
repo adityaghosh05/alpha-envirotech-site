@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Privacy',
   description:

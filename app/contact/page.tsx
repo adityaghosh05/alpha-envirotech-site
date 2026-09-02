@@ -4,6 +4,8 @@ import { PageHero } from '@/components/page-hero';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Contact',
   description:

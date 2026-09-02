@@ -1,9 +1,10 @@
-import Link from 'next/link';
 import { ArrowRight, Check, MapPinned, ShieldCheck } from 'lucide-react';
 import { ProjectCta } from '@/components/project-cta';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { experienceCards, sectors, serviceGroups } from '@/lib/site-data';
+
+export const dynamic = 'force-static';
 
 const projectPath = [
   ['01', 'Assess', 'Clarify site conditions, constraints, and risk.'],
@@ -41,13 +42,13 @@ export default function Home() {
                 permitting, engineering, construction, and compliance.
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
-                <Link className="button" href="/contact/#project-inquiry">
+                <a className="button" href="/contact/#project-inquiry">
                   Start a project inquiry{' '}
                   <span aria-hidden="true">&#8594;</span>
-                </Link>
-                <Link className="button button-ghost" href="/services/">
+                </a>
+                <a className="button button-ghost" href="/services/">
                   Explore capabilities
-                </Link>
+                </a>
               </div>
             </div>
             <aside
@@ -96,7 +97,7 @@ export default function Home() {
             </div>
             <div className="service-grid mt-10">
               {serviceGroups.map((service) => (
-                <Link
+                <a
                   className="service-card"
                   key={service.slug}
                   href={`/services/#${service.slug}`}
@@ -107,7 +108,7 @@ export default function Home() {
                   <span className="card-link">
                     View capabilities <ArrowRight aria-hidden="true" />
                   </span>
-                </Link>
+                </a>
               ))}
             </div>
           </div>
@@ -182,9 +183,9 @@ export default function Home() {
                   Work shaped around real-world constraints.
                 </h2>
               </div>
-              <Link className="text-link" href="/experience/">
+              <a className="text-link" href="/experience/">
                 Explore experience <ArrowRight aria-hidden="true" />
-              </Link>
+              </a>
             </div>
             <div className="experience-preview-grid mt-10">
               {experienceCards.slice(0, 3).map((item, index) => (

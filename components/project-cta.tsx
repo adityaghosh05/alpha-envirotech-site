@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 export function ProjectCta() {
   return (
     <section className="project-cta">
@@ -12,9 +10,9 @@ export function ProjectCta() {
             Let’s move your project forward.
           </h2>
         </div>
-        <Link className="button" href="/contact/#project-inquiry">
+        <a className="button" href="/contact/#project-inquiry">
           Start a project inquiry <span aria-hidden="true">&#8594;</span>
-        </Link>
+        </a>
       </div>
     </section>
   );

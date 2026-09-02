@@ -5,6 +5,8 @@ import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { experienceCards, sectors } from '@/lib/site-data';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'Experience',
   description:

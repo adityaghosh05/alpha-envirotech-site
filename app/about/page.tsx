@@ -6,6 +6,8 @@ import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { companyData } from '@/lib/site-data';
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
   title: 'About',
   description:
@@ -90,25 +92,37 @@ export default function AboutPage() {
           className="section section-white scroll-target"
         >
           <div className="site-shell leadership-layout">
-            <div>
+            <figure className="leader-portrait">
+              <picture>
+                <source srcSet="/images/amy-fu.webp" type="image/webp" />
+                <img
+                  src="/images/amy-fu.jpeg"
+                  alt="Dr. Amy Fu, founder and president of Alpha Envirotech Consulting"
+                  width="560"
+                  height="560"
+                  loading="lazy"
+                />
+              </picture>
+            </figure>
+            <div className="leader-copy">
               <p className="eyebrow text-blue">Leadership</p>
-              <h2 className="section-title mt-4">Amy Fu</h2>
+              <h2 className="section-title mt-4">Dr. Amy Fu</h2>
               <p className="leader-credentials">
                 P.E. · LEED AP BD+C · WELL AP
               </p>
-            </div>
-            <div className="prose-large">
-              <p>
-                Amy Fu is the founder and president of Alpha Envirotech
-                Consulting. Her leadership brings together environmental
-                engineering, sustainable building, project delivery, and
-                cross-disciplinary problem solving.
-              </p>
-              <p>
-                Under her direction, AEC supports clients that need clear
-                technical judgment, responsive coordination, and environmental
-                commitments carried through execution.
-              </p>
+              <div className="prose-large mt-8">
+                <p>
+                  Dr. Amy Fu is the founder and president of Alpha Envirotech
+                  Consulting. Her leadership brings together environmental
+                  engineering, sustainable building, project delivery, and
+                  cross-disciplinary problem solving.
+                </p>
+                <p>
+                  Under her direction, AEC supports clients that need clear
+                  technical judgment, responsive coordination, and environmental
+                  commitments carried through execution.
+                </p>
+              </div>
             </div>
           </div>
         </section>

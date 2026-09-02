@@ -868,6 +868,21 @@ img {
   font-weight: 800;
   letter-spacing: 0.06em;
 }
+.leader-portrait {
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--fog);
+  box-shadow: 0 24px 70px rgb(8 24 56 / 10%);
+}
+.leader-portrait img {
+  width: 100%;
+  height: auto;
+}
+.leader-copy {
+  align-self: center;
+}
 .company-data {
   position: relative;
   z-index: 1;

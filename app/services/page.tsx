@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { PageHero } from '@/components/page-hero';
 import { ProjectCta } from '@/components/project-cta';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { serviceGroups } from '@/lib/site-data';
+
+export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
   title: 'Environmental Services',
@@ -29,10 +30,10 @@ export default function ServicesPage() {
           <div className="site-shell">
             <div className="service-index" aria-label="Service areas">
               {serviceGroups.map((service) => (
-                <Link key={service.slug} href={`#${service.slug}`}>
+                <a key={service.slug} href={`#${service.slug}`}>
                   <span>{service.number}</span>
                   {service.title}
-                </Link>
+                </a>
               ))}
             </div>
           </div>
@@ -49,12 +50,12 @@ export default function ServicesPage() {
                   <span className="card-number">{service.number}</span>
                   <h2>{service.title}</h2>
                   <p>{service.intro}</p>
-                  <Link
+                  <a
                     className="text-link mt-6"
                     href="/contact/#project-inquiry"
                   >
                     Discuss this service <ArrowRight aria-hidden="true" />
-                  </Link>
+                  </a>
                 </div>
                 <ul className="capability-list">
                   {service.capabilities.map((capability) => (

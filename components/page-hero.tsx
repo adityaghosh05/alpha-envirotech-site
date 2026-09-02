@@ -8,7 +8,10 @@ type PageHeroProps = {
 const sources = {
   wetland: ['/images/wetland-landscape.webp', '/images/wetland-landscape.jpg'],
   construction: ['/images/construction.webp', '/images/construction.jpg'],
-  engineering: ['/images/engineering.webp', '/images/engineering.jpg'],
+  engineering: [
+    '/images/engineering-hero-upscaled.webp',
+    '/images/engineering-hero-upscaled.png',
+  ],
 };
 
 export function PageHero({

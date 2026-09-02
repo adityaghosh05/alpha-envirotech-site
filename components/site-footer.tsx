@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { navigation } from '@/lib/site-data';
 
 export function SiteFooter() {
@@ -6,20 +5,28 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="site-shell grid gap-12 py-14 md:grid-cols-[1.2fr_.8fr_.8fr] md:py-20">
         <div>
-          <Link
+          <a
             href="/"
             className="brand-lockup"
             aria-label="Alpha Envirotech home"
           >
             <picture>
-              <source srcSet="/images/aec-mark.webp" type="image/webp" />
-              <img src="/images/aec-mark.png" alt="" width="70" height="53" />
+              <source
+                srcSet="/images/aec-mark-transparent.webp"
+                type="image/webp"
+              />
+              <img
+                src="/images/aec-mark-transparent.png"
+                alt=""
+                width="70"
+                height="53"
+              />
             </picture>
             <span>
               <strong>Alpha Envirotech</strong>
               <small>Consulting, Inc.</small>
             </span>
-          </Link>
+          </a>
           <p className="mt-6 max-w-md text-white/65">
             Environmental engineering, science, and policy solutions for public
             and private projects nationwide.
@@ -32,11 +39,11 @@ export function SiteFooter() {
           <p className="footer-label">Explore</p>
           <nav className="footer-links mt-5" aria-label="Footer navigation">
             {navigation.map((item) => (
-              <Link key={item.href} href={item.href}>
+              <a key={item.href} href={item.href}>
                 {item.label}
-              </Link>
+              </a>
             ))}
-            <Link href="/privacy/">Privacy</Link>
+            <a href="/privacy/">Privacy</a>
           </nav>
         </div>
         <div>

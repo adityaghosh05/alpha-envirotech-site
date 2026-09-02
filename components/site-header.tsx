@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
@@ -13,44 +12,52 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="site-shell flex h-[76px] items-center justify-between gap-6">
-        <Link
+        <a
           href="/"
           className="brand-lockup"
           aria-label="Alpha Envirotech home"
         >
           <picture>
-            <source srcSet="/images/aec-mark.webp" type="image/webp" />
-            <img src="/images/aec-mark.png" alt="" width="70" height="53" />
+            <source
+              srcSet="/images/aec-mark-transparent.webp"
+              type="image/webp"
+            />
+            <img
+              src="/images/aec-mark-transparent.png"
+              alt=""
+              width="70"
+              height="53"
+            />
           </picture>
           <span>
             <strong>Alpha Envirotech</strong>
             <small>Consulting, Inc.</small>
           </span>
-        </Link>
+        </a>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
           {navigation.map((item) => {
             const active =
               pathname === item.href || pathname.startsWith(item.href);
             return (
-              <Link
+              <a
                 key={item.href}
                 href={item.href}
                 aria-current={active ? 'page' : undefined}
               >
                 {item.label}
-              </Link>
+              </a>
             );
           })}
         </nav>
 
         <div className="header-actions">
-          <Link
+          <a
             className="button button-small header-cta"
             href="/contact/#project-inquiry"
           >
             Start a project
-          </Link>
+          </a>
           <button
             type="button"
             className="menu-button"
@@ -71,21 +78,21 @@ export function SiteHeader() {
       >
         <nav className="site-shell" aria-label="Mobile navigation">
           {navigation.map((item) => (
-            <Link
+            <a
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
             >
               {item.label}
-            </Link>
+            </a>
           ))}
-          <Link
+          <a
             className="button mt-3"
             href="/contact/#project-inquiry"
             onClick={() => setOpen(false)}
           >
             Start a project inquiry
-          </Link>
+          </a>
         </nav>
       </div>
     </header>
