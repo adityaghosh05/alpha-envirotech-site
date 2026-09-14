@@ -3,9 +3,11 @@ import type { MetadataRoute } from 'next';
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     '',
-    '/services/',
-    '/experience/',
     '/about/',
+    '/services/',
+    '/markets/',
+    '/projects/',
+    '/careers/',
     '/contact/',
     '/privacy/',
   ].map((path) => ({

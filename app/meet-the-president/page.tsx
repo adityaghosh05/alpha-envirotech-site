@@ -2,23 +2,22 @@ import type { Metadata } from 'next';
 import { CompatibilityPage } from '@/components/compatibility-page';
 
 export const dynamic = 'force-static';
-
 export const metadata: Metadata = {
-  title: 'Projects',
+  title: 'Leadership',
   robots: { index: false, follow: true },
 };
 
-export default function ExperienceCompatibilityPage() {
+export default function LeadershipCompatibilityPage() {
   return (
     <CompatibilityPage
-      eyebrow="Projects"
-      title="Our project view has moved."
-      href="/projects/"
-      linkLabel="Explore Projects"
+      eyebrow="Leadership"
+      title="Meet Amy Fu."
+      href="/about/#leadership"
+      linkLabel="View Leadership"
     >
       <p>
-        Visit the Projects page for AEC’s regional project map and project
-        environments.
+        Learn about Amy Fu and the values that guide Alpha Envirotech on the
+        About page.
       </p>
     </CompatibilityPage>
   );

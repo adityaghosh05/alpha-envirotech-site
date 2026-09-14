@@ -2,7 +2,7 @@ import { ArrowRight, Check, MapPinned, ShieldCheck } from 'lucide-react';
 import { ProjectCta } from '@/components/project-cta';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
-import { experienceCards, sectors, serviceGroups } from '@/lib/site-data';
+import { projectHighlights, sectors, serviceGroups } from '@/lib/site-data';
 
 export const dynamic = 'force-static';
 
@@ -42,9 +42,8 @@ export default function Home() {
                 permitting, engineering, construction, and compliance.
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
-                <a className="button" href="/contact/#project-inquiry">
-                  Start a project inquiry{' '}
-                  <span aria-hidden="true">&#8594;</span>
+                <a className="button" href="/contact/#get-in-touch">
+                  Get in Touch <span aria-hidden="true">&#8594;</span>
                 </a>
                 <a className="button button-ghost" href="/services/">
                   Explore capabilities
@@ -178,17 +177,17 @@ export default function Home() {
           <div className="site-shell">
             <div className="section-heading split-heading">
               <div>
-                <p className="eyebrow text-blue">Representative experience</p>
+                <p className="eyebrow text-blue">Representative projects</p>
                 <h2 className="section-title mt-4">
                   Work shaped around real-world constraints.
                 </h2>
               </div>
-              <a className="text-link" href="/experience/">
-                Explore experience <ArrowRight aria-hidden="true" />
+              <a className="text-link" href="/projects/">
+                Explore projects <ArrowRight aria-hidden="true" />
               </a>
             </div>
             <div className="experience-preview-grid mt-10">
-              {experienceCards.slice(0, 3).map((item, index) => (
+              {projectHighlights.slice(0, 3).map((item, index) => (
                 <article className="experience-preview" key={item.title}>
                   <span>
                     {String(index + 1).padStart(2, '0')} / {item.type}

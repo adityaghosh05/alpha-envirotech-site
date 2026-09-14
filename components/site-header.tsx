@@ -8,15 +8,14 @@ import { navigation } from '@/lib/site-data';
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const headerNavigation = navigation.filter(
+    (item) => item.href !== '/contact/',
+  );
 
   return (
     <header className="site-header">
       <div className="site-shell flex h-[76px] items-center justify-between gap-6">
-        <a
-          href="/"
-          className="brand-lockup"
-          aria-label="Alpha Envirotech home"
-        >
+        <a href="/" className="brand-lockup" aria-label="Alpha Envirotech home">
           <picture>
             <source
               srcSet="/images/aec-mark-transparent.webp"
@@ -36,7 +35,7 @@ export function SiteHeader() {
         </a>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
-          {navigation.map((item) => {
+          {headerNavigation.map((item) => {
             const active =
               pathname === item.href || pathname.startsWith(item.href);
             return (
@@ -54,9 +53,9 @@ export function SiteHeader() {
         <div className="header-actions">
           <a
             className="button button-small header-cta"
-            href="/contact/#project-inquiry"
+            href="/contact/#get-in-touch"
           >
-            Start a project
+            Get in Touch
           </a>
           <button
             type="button"
@@ -77,21 +76,17 @@ export function SiteHeader() {
         hidden={!open}
       >
         <nav className="site-shell" aria-label="Mobile navigation">
-          {navigation.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-            >
+          {headerNavigation.map((item) => (
+            <a key={item.href} href={item.href} onClick={() => setOpen(false)}>
               {item.label}
             </a>
           ))}
           <a
             className="button mt-3"
-            href="/contact/#project-inquiry"
+            href="/contact/#get-in-touch"
             onClick={() => setOpen(false)}
           >
-            Start a project inquiry
+            Get in Touch
           </a>
         </nav>
       </div>

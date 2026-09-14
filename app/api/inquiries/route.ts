@@ -1,10 +1,10 @@
-const requestTypes = ['evaluation', 'proposal', 'general'] as const;
+const requestTypes = ['project', 'proposal', 'general'] as const;
 const serviceInterests = [
-  'assessment-remediation',
-  'ecology-permitting',
-  'engineering-water',
-  'construction-compliance',
-  'sustainability-buildings',
+  'engineering-field-services',
+  'ecology-resources',
+  'assessment-redevelopment',
+  'construction-support',
+  'air-regulatory-planning',
   'other',
 ] as const;
 const timelines = [
@@ -32,14 +32,14 @@ type Inquiry = {
 };
 
 const labels: Record<string, string> = {
-  evaluation: 'Free project evaluation',
+  project: 'Project inquiry',
   proposal: 'Proposal request',
-  general: 'General inquiry',
-  'assessment-remediation': 'Site assessment & remediation',
-  'ecology-permitting': 'Ecology, wetlands & cultural resources',
-  'engineering-water': 'Environmental engineering & water',
-  'construction-compliance': 'Construction, compliance & federal delivery',
-  'sustainability-buildings': 'Sustainability, buildings & industrial hygiene',
+  general: 'General question',
+  'engineering-field-services': 'Engineering & field services',
+  'ecology-resources': 'Ecology, health & resources',
+  'assessment-redevelopment': 'Assessment & redevelopment',
+  'construction-support': 'Construction services',
+  'air-regulatory-planning': 'Air & regulatory planning',
   other: 'Other / not sure',
   urgent: 'Immediate / urgent',
   '30-days': 'Within 30 days',

@@ -2,7 +2,8 @@ import { promises as fs } from 'node:fs';
 import path from 'node:path';
 
 const root = path.resolve('dist/client');
-const basePath = process.env.GITHUB_PAGES_BASE_PATH || process.env.NEXT_PUBLIC_BASE_PATH || '';
+const basePath =
+  process.env.GITHUB_PAGES_BASE_PATH || process.env.NEXT_PUBLIC_BASE_PATH || '';
 if (!basePath) process.exit(0);
 
 async function visit(directory) {
@@ -17,6 +18,11 @@ async function visit(directory) {
         .replaceAll('srcSet="/', `srcSet="${basePath}/`)
         .replaceAll('content="/', `content="${basePath}/`)
         .replaceAll('url(/', `url(${basePath}/`)
+        // RSC payloads embedded in exported HTML encode attribute quotes.
+        // Rewrite those paths as well so hydration cannot restore root URLs.
+        .replaceAll('href\\":\\"/', `href\\":\\"${basePath}/`)
+        .replaceAll('src\\":\\"/', `src\\":\\"${basePath}/`)
+        .replaceAll('srcSet\\":\\"/', `srcSet\\":\\"${basePath}/`)
         .replaceAll(`"/_next/`, `"${basePath}/_next/`)
         .replaceAll(`"/images/`, `"${basePath}/images/`)
         .replaceAll(`"/icon.png`, `"${basePath}/icon.png`)
@@ -31,7 +37,13 @@ await visit(root);
 
 if (process.env.GITHUB_PAGES_BASE_PATH || process.env.NEXT_PUBLIC_BASE_PATH) {
   for (const entry of await fs.readdir(root, { withFileTypes: true })) {
-    if (!entry.isFile() || !entry.name.endsWith('.html') || entry.name === '404.html' || entry.name === 'index.html') continue;
+    if (
+      !entry.isFile() ||
+      !entry.name.endsWith('.html') ||
+      entry.name === '404.html' ||
+      entry.name === 'index.html'
+    )
+      continue;
     const route = entry.name.slice(0, -'.html'.length);
     const source = path.join(root, entry.name);
     const destination = path.join(root, route, 'index.html');

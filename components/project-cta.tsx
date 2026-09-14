@@ -10,8 +10,8 @@ export function ProjectCta() {
             Let’s move your project forward.
           </h2>
         </div>
-        <a className="button" href="/contact/#project-inquiry">
-          Start a project inquiry <span aria-hidden="true">&#8594;</span>
+        <a className="button" href="/contact/#get-in-touch">
+          Get in Touch <span aria-hidden="true">&#8594;</span>
         </a>
       </div>
     </section>

@@ -153,14 +153,14 @@ export function InquiryForm() {
                 <NativeSelectOption value="" disabled>
                   Select a request type
                 </NativeSelectOption>
-                <NativeSelectOption value="evaluation">
-                  Free project evaluation
+                <NativeSelectOption value="project">
+                  Project inquiry
                 </NativeSelectOption>
                 <NativeSelectOption value="proposal">
                   Request a proposal
                 </NativeSelectOption>
                 <NativeSelectOption value="general">
-                  General inquiry
+                  General question
                 </NativeSelectOption>
               </NativeSelect>
             </Field>
@@ -178,20 +178,20 @@ export function InquiryForm() {
                 <NativeSelectOption value="" disabled>
                   Select a service area
                 </NativeSelectOption>
-                <NativeSelectOption value="assessment-remediation">
-                  Site assessment &amp; remediation
+                <NativeSelectOption value="engineering-field-services">
+                  Engineering &amp; field services
                 </NativeSelectOption>
-                <NativeSelectOption value="ecology-permitting">
-                  Ecology, wetlands &amp; cultural resources
+                <NativeSelectOption value="ecology-resources">
+                  Ecology, health &amp; resources
                 </NativeSelectOption>
-                <NativeSelectOption value="engineering-water">
-                  Environmental engineering &amp; water
+                <NativeSelectOption value="assessment-redevelopment">
+                  Assessment &amp; redevelopment
                 </NativeSelectOption>
-                <NativeSelectOption value="construction-compliance">
-                  Construction, compliance &amp; federal delivery
+                <NativeSelectOption value="construction-support">
+                  Construction services
                 </NativeSelectOption>
-                <NativeSelectOption value="sustainability-buildings">
-                  Sustainability, buildings &amp; industrial hygiene
+                <NativeSelectOption value="air-regulatory-planning">
+                  Air &amp; regulatory planning
                 </NativeSelectOption>
                 <NativeSelectOption value="other">
                   Other / not sure
@@ -359,7 +359,7 @@ export function InquiryForm() {
               )}
               {status.kind === 'submitting'
                 ? 'Sending inquiry…'
-                : 'Send project inquiry'}
+                : 'Send inquiry'}
             </Button>
             <p className="text-sm text-muted-foreground">
               Prefer to talk? Call <a href="tel:+19043820083">904.382.0083</a>.

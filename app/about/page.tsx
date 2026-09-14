@@ -22,6 +22,29 @@ const differentiators = [
   'A delivery mindset grounded in stewardship, safety, and compliance',
 ];
 
+const coreValues = [
+  {
+    number: '01',
+    title: 'Quality First',
+    copy: 'We prioritize careful thinking, sound technical work, and useful deliverables.',
+  },
+  {
+    number: '02',
+    title: 'Do Things Right',
+    copy: 'We work correctly, responsibly, and with professional integrity—even when the details are difficult.',
+  },
+  {
+    number: '03',
+    title: 'Protect Trust',
+    copy: 'Trust is earned once and protected every day through candor, consistency, and follow-through.',
+  },
+  {
+    number: '04',
+    title: 'Aim Higher',
+    copy: 'We continually raise our own standards and look beyond the minimum requirement to deliver better work.',
+  },
+];
+
 export default function AboutPage() {
   return (
     <>
@@ -87,6 +110,31 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+        <section className="section section-navy core-values-section">
+          <div className="site-shell">
+            <div className="section-heading split-heading">
+              <div>
+                <p className="eyebrow text-green-light">Core values</p>
+                <h2 className="section-title mt-4 text-white">
+                  We Aim Higher.
+                </h2>
+              </div>
+              <p className="section-intro text-white/68">
+                Our standards are practical: do careful work, make responsible
+                decisions, and protect the trust placed in us.
+              </p>
+            </div>
+            <div className="core-values-grid mt-12">
+              {coreValues.map((value) => (
+                <article key={value.title}>
+                  <span>{value.number}</span>
+                  <h3>{value.title}</h3>
+                  <p>{value.copy}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
         <section
           id="leadership"
           className="section section-white scroll-target"
@@ -97,7 +145,7 @@ export default function AboutPage() {
                 <source srcSet="/images/amy-fu.webp" type="image/webp" />
                 <img
                   src="/images/amy-fu.jpeg"
-                  alt="Dr. Amy Fu, founder and president of Alpha Envirotech Consulting"
+                  alt="Amy Fu, founder and president of Alpha Envirotech Consulting"
                   width="560"
                   height="560"
                   loading="lazy"
@@ -106,23 +154,31 @@ export default function AboutPage() {
             </figure>
             <div className="leader-copy">
               <p className="eyebrow text-blue">Leadership</p>
-              <h2 className="section-title mt-4">Dr. Amy Fu</h2>
-              <ul className="leader-credentials" aria-label="Professional credentials">
+              <h2 className="section-title mt-4">Amy Fu</h2>
+              <ul
+                className="leader-credentials"
+                aria-label="Professional credentials"
+              >
                 <li>P.E.</li>
                 <li>LEED AP BD+C</li>
                 <li>WELL AP</li>
               </ul>
               <div className="prose-large mt-8">
                 <p>
-                  Dr. Amy Fu is the founder and president of Alpha Envirotech
-                  Consulting. Her leadership brings together environmental
-                  engineering, sustainable building, project delivery, and
-                  cross-disciplinary problem solving.
+                  Amy Fu founded Alpha Envirotech Consulting in 2010 and leads
+                  the firm’s environmental engineering, science, and policy
+                  work. A licensed professional engineer, she remains closely
+                  involved in fieldwork and project delivery, working alongside
+                  senior staff to understand site conditions and help clients
+                  manage risk with clear, responsive judgment.
                 </p>
                 <p>
-                  Under her direction, AEC supports clients that need clear
-                  technical judgment, responsive coordination, and environmental
-                  commitments carried through execution.
+                  Beyond AEC, Amy has served on Jacksonville’s Environmental
+                  Protection Board and Planning Commission and has supported
+                  environmental education and STEM mentorship. Her leadership is
+                  grounded in continuous learning, professional integrity,
+                  community service, and a belief that technical work should be
+                  done carefully and responsibly.
                 </p>
               </div>
             </div>

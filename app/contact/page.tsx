@@ -7,9 +7,9 @@ import { SiteHeader } from '@/components/site-header';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Contact',
+  title: 'Get in Touch',
   description:
-    'Start a project inquiry with Alpha Envirotech Consulting or reach the team by phone or email.',
+    'Contact Alpha Envirotech Consulting about a project, proposal request, general question, or environmental and engineering need.',
   alternates: { canonical: '/contact/' },
 };
 
@@ -19,18 +19,18 @@ export default function ContactPage() {
       <SiteHeader />
       <main>
         <PageHero
-          eyebrow="Start a conversation"
-          title="Tell us what your project needs next."
-          description="Request a free project evaluation, ask for a proposal, or start with a general question. Our team will review the details and follow up directly."
+          eyebrow="Get in Touch"
+          title="Let’s start with what you need."
+          description="Reach out with a project inquiry, proposal request, general question, or an environmental or engineering need you would like to discuss."
           image="wetland"
         />
         <section
-          id="project-inquiry"
+          id="get-in-touch"
           className="section section-fog scroll-target"
         >
           <div className="site-shell contact-layout">
             <aside className="contact-aside">
-              <p className="eyebrow text-blue">Project inquiry</p>
+              <p className="eyebrow text-blue">Get in Touch</p>
               <h2 className="section-title mt-4">Start with the essentials.</h2>
               <p className="mt-6 text-lg leading-8 text-muted-foreground">
                 Share enough context for us to understand the need. Please do
@@ -60,27 +60,6 @@ export default function ContactPage() {
             <div className="form-card">
               <InquiryForm />
             </div>
-          </div>
-        </section>
-        <section className="section section-white">
-          <div className="site-shell disclaimer-box">
-            <p className="eyebrow text-blue">
-              Free project evaluation disclaimer
-            </p>
-            <p>
-              Free Project Evaluations are prepared by our expert environmental
-              scientists and engineers and may reveal preliminary solutions and
-              foreshadow the all-inclusive services one would receive as a
-              client. AEC does not warrant the accuracy and completeness of the
-              free evaluations, as they are based only on the information
-              provided by the requestor and are not designed to be used as
-              complete evaluations.
-            </p>
-            <p>
-              For more comprehensive, customized solutions and environmental
-              engineering consultations, please request a proposal through the
-              form above or contact us directly.
-            </p>
           </div>
         </section>
       </main>

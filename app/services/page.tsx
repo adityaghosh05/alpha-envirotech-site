@@ -50,18 +50,25 @@ export default function ServicesPage() {
                   <span className="card-number">{service.number}</span>
                   <h2>{service.title}</h2>
                   <p>{service.intro}</p>
-                  <a
-                    className="text-link mt-6"
-                    href="/contact/#project-inquiry"
-                  >
+                  <a className="text-link mt-6" href="/contact/#get-in-touch">
                     Discuss this service <ArrowRight aria-hidden="true" />
                   </a>
                 </div>
-                <ul className="capability-list">
+                <div className="capability-list">
                   {service.capabilities.map((capability) => (
-                    <li key={capability}>{capability}</li>
+                    <section
+                      className="service-capability-group"
+                      key={capability.title}
+                    >
+                      <h3>{capability.title}</h3>
+                      <ul>
+                        {capability.details.map((detail) => (
+                          <li key={detail}>{detail}</li>
+                        ))}
+                      </ul>
+                    </section>
                   ))}
-                </ul>
+                </div>
               </article>
             ))}
           </div>

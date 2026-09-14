@@ -2,23 +2,21 @@ import type { Metadata } from 'next';
 import { CompatibilityPage } from '@/components/compatibility-page';
 
 export const dynamic = 'force-static';
-
 export const metadata: Metadata = {
   title: 'Projects',
   robots: { index: false, follow: true },
 };
 
-export default function ExperienceCompatibilityPage() {
+export default function MediaCompatibilityPage() {
   return (
     <CompatibilityPage
       eyebrow="Projects"
-      title="Our project view has moved."
+      title="Explore our project work."
       href="/projects/"
-      linkLabel="Explore Projects"
+      linkLabel="View Projects"
     >
       <p>
-        Visit the Projects page for AEC’s regional project map and project
-        environments.
+        Project information and imagery are now organized on the Projects page.
       </p>
     </CompatibilityPage>
   );

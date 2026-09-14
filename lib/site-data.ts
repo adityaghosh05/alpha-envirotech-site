@@ -1,98 +1,144 @@
 export const navigation = [
-  { href: '/services/', label: 'Services' },
-  { href: '/experience/', label: 'Experience' },
   { href: '/about/', label: 'About' },
-  { href: '/contact/', label: 'Contact' },
+  { href: '/services/', label: 'Services' },
+  { href: '/markets/', label: 'Markets' },
+  { href: '/projects/', label: 'Projects' },
+  { href: '/careers/', label: 'Careers' },
+  { href: '/contact/', label: 'Get in Touch' },
 ];
 
 export const serviceGroups = [
   {
-    slug: 'assessment-remediation',
+    slug: 'engineering-field-services',
     number: '01',
-    title: 'Site Assessment & Remediation',
+    title: 'Engineering & Field Services',
     short:
-      'Understand environmental risk early and move toward practical closure.',
+      'Turn field observations and technical data into clear, defensible decisions.',
     intro:
-      'AEC evaluates contamination and remedial options across soil, groundwater, sediment, surface water, and indoor air so clients can make informed, defensible decisions.',
+      'AEC connects engineering judgment, field characterization, and environmental chemistry to define site conditions and guide practical next steps.',
     capabilities: [
-      'Phase I, II, III & IV environmental site assessments',
-      'Contamination assessment and remediation',
-      'Remedial feasibility studies',
-      'Vapor intrusion assessment and mitigation',
-      'Sediment and surface-water assessment',
-      'Groundwater modeling and dewatering plans',
+      {
+        title: 'Engineering Services',
+        details: [
+          'Environmental and remedial engineering',
+          'Water-management and dewatering planning',
+        ],
+      },
+      {
+        title: 'Environmental Field Characterization',
+        details: [
+          'Soil, groundwater, sediment, surface-water, and indoor-air field programs',
+        ],
+      },
+      {
+        title: 'Environmental Chemistry and Geochemistry',
+        details: [
+          'Technical interpretation of environmental sampling and analytical data',
+        ],
+      },
     ],
   },
   {
-    slug: 'ecology-permitting',
+    slug: 'ecology-resources',
     number: '02',
-    title: 'Ecology, Wetlands & Cultural Resources',
+    title: 'Ecology, Health & Resources',
     short:
-      'Align natural-resource stewardship with permitting and project goals.',
+      'Address ecological, cultural, and workplace considerations early in project planning.',
     intro:
-      'AEC supports projects where ecological resources, regulatory requirements, and development objectives meet, from early planning through agency coordination.',
+      'AEC supports responsible project decisions where natural resources, cultural resources, and industrial-hygiene needs intersect with development and construction.',
     capabilities: [
-      'Wetland delineation, determination and permitting',
-      'Listed-species surveys and permitting',
-      'Natural-resource assessments',
-      'NEPA compliance and PD&E studies',
-      'Cultural-resources support',
-      'GIS analysis and mapping',
+      {
+        title: 'Ecological and Industrial Hygiene',
+        details: [
+          'Wetland and habitat assessment',
+          'Asbestos, lead-based paint, mold, and occupational-environment support',
+        ],
+      },
+      {
+        title: 'Natural Resources',
+        details: [
+          'Wetlands, surface waters, listed species, habitat, and permitting support',
+        ],
+      },
+      {
+        title: 'Cultural Resources',
+        details: ['Cultural-resource assessment and coordination'],
+      },
     ],
   },
   {
-    slug: 'engineering-water',
+    slug: 'assessment-redevelopment',
     number: '03',
-    title: 'Environmental Engineering & Water',
+    title: 'Assessment & Redevelopment',
     short:
-      'Translate environmental requirements into buildable, compliant solutions.',
+      'Understand contamination, evaluate response options, and support productive reuse.',
     intro:
-      'Our engineering team develops technically sound approaches for environmental remediation, water management, permitting, and facility compliance.',
+      'AEC evaluates environmental conditions and develops responsible pathways for remediation, restoration, and redevelopment.',
     capabilities: [
-      'Environmental and remedial engineering',
-      'Air, stormwater and groundwater permitting',
-      'SWPPP and SPCC plans',
-      'Dewatering plans and groundwater modeling',
-      'Title V air permitting and compliance support',
-      'Corridor and land-development studies',
+      {
+        title: 'Contamination Assessment',
+        details: [
+          'Due diligence, site assessment, delineation, and risk-focused investigation',
+        ],
+      },
+      {
+        title: 'Remediation / Restoration / Redevelopment',
+        details: [
+          'Remedial planning, restoration support, closure strategy, and redevelopment coordination',
+        ],
+      },
     ],
   },
   {
-    slug: 'construction-compliance',
+    slug: 'construction-support',
     number: '04',
-    title: 'Construction, Compliance & Federal Delivery',
-    short: 'Keep complex work moving from preconstruction through closeout.',
+    title: 'Construction Services',
+    short:
+      'Carry environmental requirements into the field from mobilization through closeout.',
     intro:
-      'AEC integrates environmental compliance and field support into the delivery process for public, private, utility, and federal projects.',
+      'AEC integrates environmental planning, field oversight, and responsive technical support into active construction programs.',
     capabilities: [
-      'Construction permitting and compliance',
-      'Environmental project and construction management',
-      'Federal design-build and construction support',
-      'Noise, vibration and SWPPP monitoring',
-      'Health & Safety and Environmental Protection Plans',
-      'Compliance inspections and documentation',
+      {
+        title: 'Construction Services',
+        details: [
+          'Environmental compliance, monitoring, documentation, and field coordination',
+        ],
+      },
+      {
+        title: 'Construction Support',
+        details: [
+          'Environmental Management',
+          'Environmental Remediation Construction',
+          'Facility Decommissioning',
+        ],
+      },
     ],
   },
   {
-    slug: 'sustainability-buildings',
+    slug: 'air-regulatory-planning',
     number: '05',
-    title: 'Sustainability, Buildings & Industrial Hygiene',
+    title: 'Air & Regulatory Planning',
     short:
-      'Advance healthy, efficient environments without losing sight of delivery.',
+      'Translate air-quality and stormwater requirements into usable project plans.',
     intro:
-      'AEC helps clients address building performance, material concerns, worker health, and sustainability requirements within broader project goals.',
+      'AEC helps clients evaluate air pathways, plan mitigation, and document environmental requirements for construction and ongoing compliance.',
     capabilities: [
-      'LEED and WELL building services',
-      'Industrial-hygiene support',
-      'Asbestos, lead-based paint and mold assessment',
-      'Indoor-air and vapor-intrusion evaluation',
-      'Sustainability planning and documentation',
-      'Health and safety support',
+      {
+        title: 'Air Quality Consulting',
+        details: ['Indoor Air', 'Vapor Intrusion', 'Mitigation'],
+      },
+      {
+        title: 'Environmental Regulatory Plans',
+        details: [
+          'SWPPPs / Stormwater Pollution Prevention Plans',
+          'Environmental protection and compliance planning',
+        ],
+      },
     ],
   },
 ];
 
-export const experienceCards = [
+export const projectHighlights = [
   {
     type: 'Environmental due diligence',
     title: 'Phase I & II site assessment support',
@@ -134,6 +180,42 @@ export const experienceCards = [
     summary:
       'Technical coordination and documentation to support healthy, efficient, and sustainability-focused building programs.',
     tags: ['LEED', 'WELL', 'Buildings'],
+  },
+];
+
+export const markets = [
+  {
+    number: '01',
+    title: 'Public Works',
+    copy: 'Environmental, engineering, permitting, and construction support for infrastructure and community-serving projects.',
+    image: '/images/projects/arlington-water-reclamation.webp',
+    fallback: '/images/projects/arlington-water-reclamation.jpg',
+    alt: 'Water reclamation facility infrastructure in Jacksonville',
+  },
+  {
+    number: '02',
+    title: 'Federal',
+    copy: 'Responsive environmental support for complex federal planning, design-build, construction, and compliance environments.',
+    image: '/images/projects/kings-bay-federal-construction.webp',
+    fallback: '/images/projects/kings-bay-federal-construction.png',
+    alt: 'Federal waterfront construction facility at Kings Bay',
+  },
+  {
+    number: '03',
+    title: 'Development Consulting',
+    copy: 'Early environmental insight for property, land-development, redevelopment, and commercial decision-making.',
+    image: '/images/wetland-landscape.webp',
+    fallback: '/images/wetland-landscape.jpg',
+    alt: 'Wetland landscape representing environmental planning',
+  },
+];
+
+export const mapProjects = [
+  {
+    city: 'Jacksonville, Florida',
+    projectName: 'Sample Project',
+    x: 51,
+    y: 66,
   },
 ];
 
