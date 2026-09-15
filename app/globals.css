@@ -204,9 +204,9 @@ img {
   mask-image: linear-gradient(to right, black, transparent 60%);
 }
 .eyebrow {
-  font-size: 0.76rem;
+  font-size: clamp(0.86rem, 0.3vw + 0.78rem, 0.95rem);
   font-weight: 800;
-  letter-spacing: 0.17em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 .text-blue {
@@ -271,7 +271,7 @@ img {
 .path-number {
   color: var(--green);
   font-family: var(--font-display), sans-serif;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 700;
 }
 .project-path h3 {
@@ -595,6 +595,7 @@ img {
 .card-number {
   color: var(--green);
   font-family: var(--font-display), sans-serif;
+  font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: 0.08em;
 }
@@ -678,7 +679,7 @@ img {
 }
 .experience-preview > span {
   color: var(--blue);
-  font-size: 0.72rem;
+  font-size: 0.88rem;
   font-weight: 800;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -779,7 +780,7 @@ img {
 }
 .service-index span {
   color: var(--green);
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 .service-details {
   padding-top: 0;
@@ -1038,7 +1039,7 @@ img {
 .numbered-sectors span {
   color: var(--green);
   font-family: var(--font-body), sans-serif;
-  font-size: 0.72rem;
+  font-size: 1rem;
   font-weight: 800;
 }
 
@@ -1136,6 +1137,9 @@ img {
   font-weight: 600;
   letter-spacing: -0.03em;
 }
+.leader-video-heading {
+  text-align: center;
+}
 .video-frame {
   position: relative;
   overflow: hidden;
@@ -1190,7 +1194,7 @@ img {
 }
 .core-values-grid span {
   color: #77d38b;
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 800;
 }
 .core-values-grid h3 {
@@ -1259,6 +1263,11 @@ img {
 }
 .career-panel-accent > p:not(.eyebrow) {
   color: rgb(255 255 255 / 68%);
+}
+.career-panel-accent > .button {
+  display: flex;
+  width: fit-content;
+  margin-inline: auto;
 }
 
 /* Compatibility routes */
