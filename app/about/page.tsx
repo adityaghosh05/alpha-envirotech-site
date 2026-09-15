@@ -148,12 +148,15 @@ export default function AboutPage() {
           <div className="site-shell leadership-layout">
             <figure className="leader-portrait">
               <picture>
-                <source srcSet="/images/amy-fu.webp" type="image/webp" />
+                <source
+                  srcSet="/images/amy-fu-upscaled.webp"
+                  type="image/webp"
+                />
                 <img
-                  src="/images/amy-fu.jpeg"
+                  src="/images/amy-fu-upscaled.jpg"
                   alt="Amy Fu, founder and president of Alpha Envirotech Consulting"
-                  width="560"
-                  height="560"
+                  width="1254"
+                  height="1254"
                   loading="lazy"
                 />
               </picture>
