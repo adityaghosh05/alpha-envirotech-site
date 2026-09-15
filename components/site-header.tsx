@@ -1,7 +1,6 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import Link from 'next/link';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { navigation } from '@/lib/site-data';
@@ -17,11 +16,7 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="site-shell flex h-[76px] items-center justify-between gap-6">
-        <Link
-          href="/"
-          className="brand-lockup"
-          aria-label="Alpha Envirotech home"
-        >
+        <a href="/" className="brand-lockup" aria-label="Alpha Envirotech home">
           <picture>
             <source
               srcSet="/images/aec-mark-transparent.webp"
@@ -38,7 +33,7 @@ export function SiteHeader() {
             <strong>Alpha Envirotech</strong>
             <small>Consulting, Inc.</small>
           </span>
-        </Link>
+        </a>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
           {headerNavigation.map((item) => {
@@ -66,37 +61,37 @@ export function SiteHeader() {
                     <ChevronDown aria-hidden="true" />
                   </button>
                   <div className={`nav-dropdown ${expanded ? 'is-open' : ''}`}>
-                    <Link className="nav-overview" href={item.href}>
+                    <a className="nav-overview" href={item.href}>
                       View all {item.label.toLowerCase()}
-                    </Link>
+                    </a>
                     {item.children.map((child) => (
-                      <Link key={child.href} href={child.href}>
+                      <a key={child.href} href={child.href}>
                         {child.label}
-                      </Link>
+                      </a>
                     ))}
                   </div>
                 </div>
               );
             }
             return (
-              <Link
+              <a
                 key={item.href}
                 href={item.href}
                 aria-current={active ? 'page' : undefined}
               >
                 {item.label}
-              </Link>
+              </a>
             );
           })}
         </nav>
 
         <div className="header-actions">
-          <Link
+          <a
             className="button button-small header-cta"
             href="/contact/#get-in-touch"
           >
             Get in Touch
-          </Link>
+          </a>
           <button
             type="button"
             className="menu-button"
@@ -124,37 +119,37 @@ export function SiteHeader() {
                   <ChevronDown aria-hidden="true" />
                 </summary>
                 <div>
-                  <Link href={item.href} onClick={() => setOpen(false)}>
+                  <a href={item.href} onClick={() => setOpen(false)}>
                     View all {item.label.toLowerCase()}
-                  </Link>
+                  </a>
                   {item.children.map((child) => (
-                    <Link
+                    <a
                       key={child.href}
                       href={child.href}
                       onClick={() => setOpen(false)}
                     >
                       {child.label}
-                    </Link>
+                    </a>
                   ))}
                 </div>
               </details>
             ) : (
-              <Link
+              <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
               >
                 {item.label}
-              </Link>
+              </a>
             ),
           )}
-          <Link
+          <a
             className="button mt-3"
             href="/contact/#get-in-touch"
             onClick={() => setOpen(false)}
           >
             Get in Touch
-          </Link>
+          </a>
         </nav>
       </div>
     </header>

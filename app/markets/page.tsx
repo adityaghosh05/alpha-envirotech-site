@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { PageHero } from '@/components/page-hero';
 import { ProjectCta } from '@/components/project-cta';
@@ -61,12 +60,9 @@ export default function MarketsPage() {
                     <span className="card-number">{market.number}</span>
                     <h2>{market.title}</h2>
                     <p>{market.copy}</p>
-                    <Link
-                      className="text-link mt-6"
-                      href="/contact/#get-in-touch"
-                    >
+                    <a className="text-link mt-6" href="/contact/#get-in-touch">
                       Discuss your needs <ArrowRight aria-hidden="true" />
-                    </Link>
+                    </a>
                   </div>
                 </article>
               ))}
