@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import { Barlow_Condensed, Source_Sans_3 } from 'next/font/google';
+import { IBM_Plex_Sans, Source_Sans_3 } from 'next/font/google';
 import './globals.css';
 
-const display = Barlow_Condensed({
+const display = IBM_Plex_Sans({
   variable: '--font-display',
   subsets: ['latin'],
   weight: ['500', '600', '700'],

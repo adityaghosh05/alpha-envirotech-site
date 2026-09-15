@@ -1,51 +1,12 @@
-const requestTypes = ['project', 'proposal', 'general'] as const;
-const serviceInterests = [
-  'engineering-field-services',
-  'ecology-resources',
-  'assessment-redevelopment',
-  'construction-support',
-  'air-regulatory-planning',
-  'other',
-] as const;
-const timelines = [
-  'urgent',
-  '30-days',
-  '1-3-months',
-  '3-plus-months',
-  'planning',
-] as const;
-
 type Inquiry = {
-  requestType: (typeof requestTypes)[number];
-  serviceInterest: (typeof serviceInterests)[number];
-  fullName: string;
+  firstName: string;
+  lastName: string;
   organization: string;
   email: string;
-  phone: string;
-  projectLocation: string;
-  timeline: (typeof timelines)[number];
-  summary: string;
-  consent: boolean;
+  message: string;
   turnstileToken: string;
   submissionId: string;
   website: string;
-};
-
-const labels: Record<string, string> = {
-  project: 'Project inquiry',
-  proposal: 'Proposal request',
-  general: 'General question',
-  'engineering-field-services': 'Engineering & field services',
-  'ecology-resources': 'Ecology, health & resources',
-  'assessment-redevelopment': 'Assessment & redevelopment',
-  'construction-support': 'Construction services',
-  'air-regulatory-planning': 'Air & regulatory planning',
-  other: 'Other / not sure',
-  urgent: 'Immediate / urgent',
-  '30-days': 'Within 30 days',
-  '1-3-months': '1–3 months',
-  '3-plus-months': 'More than 3 months',
-  planning: 'Early planning',
 };
 
 function json(body: Record<string, unknown>, status = 200) {
@@ -73,20 +34,12 @@ function escapeHtml(value: string) {
 }
 
 function parseInquiry(raw: Record<string, unknown>): Inquiry | null {
-  const requestType = clean(raw.requestType, 32);
-  const serviceInterest = clean(raw.serviceInterest, 64);
-  const timeline = clean(raw.timeline, 32);
   const inquiry: Inquiry = {
-    requestType: requestType as Inquiry['requestType'],
-    serviceInterest: serviceInterest as Inquiry['serviceInterest'],
-    fullName: clean(raw.fullName, 120),
+    firstName: clean(raw.firstName, 80),
+    lastName: clean(raw.lastName, 80),
     organization: clean(raw.organization, 160),
     email: clean(raw.email, 200).toLowerCase(),
-    phone: clean(raw.phone, 40),
-    projectLocation: clean(raw.projectLocation, 160),
-    timeline: timeline as Inquiry['timeline'],
-    summary: clean(raw.summary, 3000),
-    consent: raw.consent === true,
+    message: clean(raw.message, 3000),
     turnstileToken: clean(raw.turnstileToken, 2048),
     submissionId: clean(raw.submissionId, 80),
     website: clean(raw.website, 200),
@@ -95,15 +48,11 @@ function parseInquiry(raw: Record<string, unknown>): Inquiry | null {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const idPattern = /^[a-zA-Z0-9-]{16,80}$/;
   if (
-    !requestTypes.includes(inquiry.requestType) ||
-    !serviceInterests.includes(inquiry.serviceInterest) ||
-    !timelines.includes(inquiry.timeline) ||
-    inquiry.fullName.length < 2 ||
+    inquiry.firstName.length < 1 ||
+    inquiry.lastName.length < 1 ||
     inquiry.organization.length < 2 ||
     !emailPattern.test(inquiry.email) ||
-    inquiry.projectLocation.length < 2 ||
-    inquiry.summary.length < 20 ||
-    !inquiry.consent ||
+    inquiry.message.length < 10 ||
     !inquiry.turnstileToken ||
     !idPattern.test(inquiry.submissionId)
   )
@@ -214,22 +163,18 @@ export async function POST(request: Request) {
   }
 
   const rows = [
-    ['Request type', labels[inquiry.requestType]],
-    ['Service interest', labels[inquiry.serviceInterest]],
-    ['Name', inquiry.fullName],
+    ['First name', inquiry.firstName],
+    ['Last name', inquiry.lastName],
     ['Organization', inquiry.organization],
     ['Email', inquiry.email],
-    ['Phone', inquiry.phone || 'Not provided'],
-    ['Project location', inquiry.projectLocation],
-    ['Timeline', labels[inquiry.timeline]],
   ];
   const text = [
     'New Alpha Envirotech website inquiry',
     '',
     ...rows.map(([label, value]) => `${label}: ${value}`),
     '',
-    'Project or goal summary:',
-    inquiry.summary,
+    'Message:',
+    inquiry.message,
   ].join('\n');
   const htmlRows = rows
     .map(
@@ -237,7 +182,7 @@ export async function POST(request: Request) {
         `<tr><th style="padding:8px 14px 8px 0;text-align:left;vertical-align:top;color:#52645b">${escapeHtml(label)}</th><td style="padding:8px 0;vertical-align:top">${escapeHtml(value)}</td></tr>`,
     )
     .join('');
-  const html = `<div style="font-family:Arial,sans-serif;color:#17251f;line-height:1.5"><h1 style="color:#081838">New website inquiry</h1><table style="border-collapse:collapse">${htmlRows}</table><h2 style="margin-top:28px;color:#081838">Project or goal summary</h2><p style="white-space:pre-wrap">${escapeHtml(inquiry.summary)}</p></div>`;
+  const html = `<div style="font-family:Arial,sans-serif;color:#17251f;line-height:1.5"><h1 style="color:#081838">New website message</h1><table style="border-collapse:collapse">${htmlRows}</table><h2 style="margin-top:28px;color:#081838">Message</h2><p style="white-space:pre-wrap">${escapeHtml(inquiry.message)}</p></div>`;
 
   try {
     const delivery = await fetch('https://api.resend.com/emails', {
@@ -251,13 +196,10 @@ export async function POST(request: Request) {
         from,
         to: recipients,
         reply_to: inquiry.email,
-        subject: `[AEC website] ${labels[inquiry.requestType]} — ${inquiry.organization}`,
+        subject: `[AEC website] Message from ${inquiry.firstName} ${inquiry.lastName} — ${inquiry.organization}`,
         text,
         html,
-        tags: [
-          { name: 'source', value: 'website' },
-          { name: 'request_type', value: inquiry.requestType },
-        ],
+        tags: [{ name: 'source', value: 'website' }],
       }),
       signal: AbortSignal.timeout(10_000),
     });

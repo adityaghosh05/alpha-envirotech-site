@@ -1,7 +1,51 @@
 export const navigation = [
-  { href: '/about/', label: 'About' },
-  { href: '/services/', label: 'Services' },
-  { href: '/markets/', label: 'Markets' },
+  {
+    href: '/about/',
+    label: 'About',
+    children: [
+      { href: '/about/#our-purpose', label: 'Our Purpose' },
+      { href: '/about/#core-values', label: 'Core Values' },
+      { href: '/about/#leadership', label: 'Amy Fu, President' },
+    ],
+  },
+  {
+    href: '/services/',
+    label: 'Services',
+    children: [
+      {
+        href: '/services/#engineering-field-services',
+        label: 'Engineering & Field Services',
+      },
+      {
+        href: '/services/#ecology-resources',
+        label: 'Ecology, Health & Resources',
+      },
+      {
+        href: '/services/#assessment-redevelopment',
+        label: 'Assessment & Redevelopment',
+      },
+      {
+        href: '/services/#construction-support',
+        label: 'Construction Services',
+      },
+      {
+        href: '/services/#air-regulatory-planning',
+        label: 'Air & Regulatory Planning',
+      },
+    ],
+  },
+  {
+    href: '/markets/',
+    label: 'Markets',
+    children: [
+      { href: '/markets/#public-works', label: 'Public Works' },
+      { href: '/markets/#federal', label: 'Federal' },
+      {
+        href: '/markets/#development-consulting',
+        label: 'Development Consulting',
+      },
+    ],
+  },
   { href: '/projects/', label: 'Projects' },
   { href: '/careers/', label: 'Careers' },
   { href: '/contact/', label: 'Get in Touch' },
@@ -185,6 +229,7 @@ export const projectHighlights = [
 
 export const markets = [
   {
+    slug: 'public-works',
     number: '01',
     title: 'Public Works',
     copy: 'Environmental, engineering, permitting, and construction support for infrastructure and community-serving projects.',
@@ -193,6 +238,7 @@ export const markets = [
     alt: 'Water reclamation facility infrastructure in Jacksonville',
   },
   {
+    slug: 'federal',
     number: '02',
     title: 'Federal',
     copy: 'Responsive environmental support for complex federal planning, design-build, construction, and compliance environments.',
@@ -201,6 +247,7 @@ export const markets = [
     alt: 'Federal waterfront construction facility at Kings Bay',
   },
   {
+    slug: 'development-consulting',
     number: '03',
     title: 'Development Consulting',
     copy: 'Early environmental insight for property, land-development, redevelopment, and commercial decision-making.',

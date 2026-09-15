@@ -56,7 +56,10 @@ export default function AboutPage() {
           description="Founded in Jacksonville in 2010, AEC helps public and private clients move complex environmental work toward practical, responsible outcomes."
           image="about"
         />
-        <section className="section section-white">
+        <section
+          id="our-purpose"
+          className="section section-white scroll-target"
+        >
           <div className="site-shell story-layout">
             <div>
               <p className="eyebrow text-blue">Our purpose</p>
@@ -110,7 +113,10 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
-        <section className="section section-navy core-values-section">
+        <section
+          id="core-values"
+          className="section section-navy core-values-section scroll-target"
+        >
           <div className="site-shell">
             <div className="section-heading split-heading">
               <div>
@@ -180,6 +186,22 @@ export default function AboutPage() {
                   community service, and a belief that technical work should be
                   done carefully and responsibly.
                 </p>
+              </div>
+            </div>
+            <div className="leader-video">
+              <div className="leader-video-heading">
+                <p className="eyebrow text-blue">In her own words</p>
+                <h3>Meet Amy Fu</h3>
+              </div>
+              <div className="video-frame">
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/LcnZ_DS-yEc?rel=0"
+                  title="Meet Amy Fu, founder and president of Alpha Envirotech Consulting"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
               </div>
             </div>
           </div>

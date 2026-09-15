@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { PageHero } from '@/components/page-hero';
 import { ProjectCta } from '@/components/project-cta';
@@ -43,7 +44,11 @@ export default function MarketsPage() {
             </div>
             <div className="market-grid mt-12">
               {markets.map((market) => (
-                <article className="market-card" key={market.title}>
+                <article
+                  id={market.slug}
+                  className="market-card scroll-target"
+                  key={market.title}
+                >
                   <picture>
                     <source srcSet={market.image} type="image/webp" />
                     <img
@@ -56,9 +61,12 @@ export default function MarketsPage() {
                     <span className="card-number">{market.number}</span>
                     <h2>{market.title}</h2>
                     <p>{market.copy}</p>
-                    <a className="text-link mt-6" href="/contact/#get-in-touch">
+                    <Link
+                      className="text-link mt-6"
+                      href="/contact/#get-in-touch"
+                    >
                       Discuss your needs <ArrowRight aria-hidden="true" />
-                    </a>
+                    </Link>
                   </div>
                 </article>
               ))}

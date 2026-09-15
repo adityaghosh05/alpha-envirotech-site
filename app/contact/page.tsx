@@ -19,9 +19,9 @@ export default function ContactPage() {
       <SiteHeader />
       <main>
         <PageHero
-          eyebrow="Get in Touch"
-          title="Let’s start with what you need."
-          description="Reach out with a project inquiry, proposal request, general question, or an environmental or engineering need you would like to discuss."
+          eyebrow="Contact"
+          title="Let’s talk."
+          description="Have a question or want to discuss an upcoming project? Send us a message and our team will follow up."
           image="wetland"
         />
         <section
@@ -31,10 +31,10 @@ export default function ContactPage() {
           <div className="site-shell contact-layout">
             <aside className="contact-aside">
               <p className="eyebrow text-blue">Get in Touch</p>
-              <h2 className="section-title mt-4">Start with the essentials.</h2>
+              <h2 className="section-title mt-4">How can we help?</h2>
               <p className="mt-6 text-lg leading-8 text-muted-foreground">
-                Share enough context for us to understand the need. Please do
-                not send confidential or regulated material through this form.
+                Tell us a little about what you need. We’ll connect you with the
+                right person at Alpha Envirotech.
               </p>
               <dl className="contact-details mt-9">
                 <div>
