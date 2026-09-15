@@ -10,19 +10,21 @@ export function ProjectMap() {
           alt="Map of the southeastern and eastern United States from Florida through Pennsylvania"
         />
         {mapProjects.map((project) => (
-          <div
+          <button
+            type="button"
             className="project-map-marker"
             key={`${project.city}-${project.projectName}`}
             style={{ left: `${project.x}%`, top: `${project.y}%` }}
+            aria-label={`${project.city}: ${project.projectName}`}
           >
             <span className="project-map-pin" aria-hidden="true">
               <MapPin />
             </span>
-            <div className="project-map-popup">
+            <span className="project-map-popup" aria-hidden="true">
               <strong>{project.city}</strong>
               <span>{project.projectName}</span>
-            </div>
-          </div>
+            </span>
+          </button>
         ))}
       </div>
       <figcaption>
