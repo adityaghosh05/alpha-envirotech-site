@@ -26,6 +26,7 @@ export default function Home() {
               className="hero-home-image"
               src="/images/wetland-egret.jpg"
               alt=""
+              fetchPriority="high"
             />
           </picture>
           <div className="hero-home-overlay" />

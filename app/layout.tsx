@@ -82,7 +82,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${display.variable} ${body.variable}`}>
+      <body id="top" className={`${display.variable} ${body.variable}`}>
         {children}
         <script
           type="application/ld+json"

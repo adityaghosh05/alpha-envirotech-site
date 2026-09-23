@@ -2,19 +2,61 @@
 
 import { usePathname } from 'next/navigation';
 import { ChevronDown, Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { navigation } from '@/lib/site-data';
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const headerRef = useRef<HTMLElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
   const headerNavigation = navigation.filter(
     (item) => item.href !== '/contact/',
   );
 
+  useEffect(() => {
+    function dismissOutside(event: PointerEvent) {
+      if (!headerRef.current?.contains(event.target as Node)) {
+        setOpen(false);
+        setActiveDropdown(null);
+      }
+    }
+    document.addEventListener('pointerdown', dismissOutside);
+    return () => document.removeEventListener('pointerdown', dismissOutside);
+  }, []);
+
+  useEffect(() => {
+    function dismissWithEscape(event: KeyboardEvent) {
+      if (event.key !== 'Escape') return;
+      if (open) {
+        setOpen(false);
+        menuButtonRef.current?.focus();
+      }
+      if (activeDropdown) {
+        headerRef.current
+          ?.querySelector<HTMLButtonElement>(
+            '.nav-trigger[aria-expanded="true"]',
+          )
+          ?.focus();
+        setActiveDropdown(null);
+      }
+    }
+    document.addEventListener('keydown', dismissWithEscape);
+    return () => document.removeEventListener('keydown', dismissWithEscape);
+  }, [open, activeDropdown]);
+
   return (
-    <header className="site-header">
+    <header
+      className="site-header"
+      ref={headerRef}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) {
+          setOpen(false);
+          setActiveDropdown(null);
+        }
+      }}
+    >
       <div className="site-shell flex h-[76px] items-center justify-between gap-6">
         <a href="/" className="brand-lockup" aria-label="Alpha Envirotech home">
           <picture>
@@ -47,11 +89,17 @@ export function SiteHeader() {
                   key={item.href}
                   onMouseEnter={() => setActiveDropdown(item.href)}
                   onMouseLeave={() => setActiveDropdown(null)}
+                  onBlur={(event) => {
+                    if (!event.currentTarget.contains(event.relatedTarget)) {
+                      setActiveDropdown(null);
+                    }
+                  }}
                 >
                   <button
                     type="button"
                     className="nav-trigger"
                     aria-expanded={expanded}
+                    aria-controls={`nav-${item.label.toLowerCase()}`}
                     aria-current={active ? 'page' : undefined}
                     onClick={() =>
                       setActiveDropdown(expanded ? null : item.href)
@@ -60,7 +108,11 @@ export function SiteHeader() {
                     {item.label}
                     <ChevronDown aria-hidden="true" />
                   </button>
-                  <div className={`nav-dropdown ${expanded ? 'is-open' : ''}`}>
+                  <div
+                    id={`nav-${item.label.toLowerCase()}`}
+                    className={`nav-dropdown ${expanded ? 'is-open' : ''}`}
+                    inert={!expanded}
+                  >
                     <a className="nav-overview" href={item.href}>
                       View all {item.label.toLowerCase()}
                     </a>
@@ -95,6 +147,7 @@ export function SiteHeader() {
           <button
             type="button"
             className="menu-button"
+            ref={menuButtonRef}
             aria-label={open ? 'Close navigation' : 'Open navigation'}
             aria-expanded={open}
             aria-controls="mobile-navigation"

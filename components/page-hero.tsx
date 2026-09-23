@@ -7,7 +7,10 @@ type PageHeroProps = {
 
 const sources = {
   wetland: ['/images/wetland-landscape.webp', '/images/wetland-landscape.jpg'],
-  about: ['/images/about-wetland-viewing.webp', '/images/about-wetland-viewing.jpg'],
+  about: [
+    '/images/about-wetland-viewing.webp',
+    '/images/about-wetland-viewing.jpg',
+  ],
   construction: ['/images/construction.webp', '/images/construction.jpg'],
   engineering: [
     '/images/engineering-hero-upscaled.webp',
@@ -26,7 +29,7 @@ export function PageHero({
     <section className="page-hero">
       <picture>
         <source srcSet={webp} type="image/webp" />
-        <img src={fallback} alt="" />
+        <img src={fallback} alt="" fetchPriority="high" />
       </picture>
       <div className="page-hero-overlay" />
       <div className="site-shell relative z-10 py-20 sm:py-28 lg:py-32">
