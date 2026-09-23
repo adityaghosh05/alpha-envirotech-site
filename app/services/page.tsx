@@ -61,11 +61,13 @@ export default function ServicesPage() {
                       key={capability.title}
                     >
                       <h3>{capability.title}</h3>
-                      <ul>
-                        {capability.details.map((detail) => (
-                          <li key={detail}>{detail}</li>
-                        ))}
-                      </ul>
+                      {capability.details.length > 0 && (
+                        <ul>
+                          {capability.details.map((detail) => (
+                            <li key={detail}>{detail}</li>
+                          ))}
+                        </ul>
+                      )}
                     </section>
                   ))}
                 </div>

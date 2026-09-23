@@ -13,8 +13,8 @@ export const navigation = [
     label: 'Services',
     children: [
       {
-        href: '/services/#engineering-field-services',
-        label: 'Engineering & Field Services',
+        href: '/services/#engineering-services',
+        label: 'Engineering Services',
       },
       {
         href: '/services/#ecology-resources',
@@ -53,32 +53,25 @@ export const navigation = [
 
 export const serviceGroups = [
   {
-    slug: 'engineering-field-services',
+    slug: 'engineering-services',
     number: '01',
-    title: 'Engineering & Field Services',
+    title: 'Engineering Services',
     short:
       'Turn field observations and technical data into clear, defensible decisions.',
     intro:
       'AEC connects engineering judgment, field characterization, and environmental chemistry to define site conditions and guide practical next steps.',
     capabilities: [
       {
-        title: 'Engineering Services',
-        details: [
-          'Environmental and remedial engineering',
-          'Water-management and dewatering planning',
-        ],
+        title: 'Contamination Assessment and Remediation',
+        details: [],
       },
       {
-        title: 'Environmental Field Characterization',
-        details: [
-          'Soil, groundwater, sediment, surface-water, and indoor-air field programs',
-        ],
+        title: 'Stormwater Management',
+        details: [],
       },
       {
-        title: 'Environmental Chemistry and Geochemistry',
-        details: [
-          'Technical interpretation of environmental sampling and analytical data',
-        ],
+        title: 'Dewatering Design',
+        details: [],
       },
     ],
   },
