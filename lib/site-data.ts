@@ -13,24 +13,28 @@ export const navigation = [
     label: 'Services',
     children: [
       {
+        href: '/services/#assessment-remediation-redevelopment',
+        label: 'Assessment, Remediation, and Redevelopment',
+      },
+      {
+        href: '/services/#construction-support',
+        label: 'Construction Support Services',
+      },
+      {
+        href: '/services/#cultural-resources',
+        label: 'Cultural Resources',
+      },
+      {
+        href: '/services/#ecology-resources',
+        label: 'Ecological Services',
+      },
+      {
         href: '/services/#engineering-services',
         label: 'Engineering Services',
       },
       {
-        href: '/services/#ecology-resources',
-        label: 'Ecology, Health & Resources',
-      },
-      {
-        href: '/services/#assessment-redevelopment',
-        label: 'Assessment & Redevelopment',
-      },
-      {
-        href: '/services/#construction-support',
-        label: 'Construction Services',
-      },
-      {
-        href: '/services/#air-regulatory-planning',
-        label: 'Air & Regulatory Planning',
+        href: '/services/#industrial-hygiene-services',
+        label: 'Industrial Hygiene Services',
       },
     ],
   },
@@ -53,8 +57,140 @@ export const navigation = [
 
 export const serviceGroups = [
   {
-    slug: 'engineering-services',
+    slug: 'assessment-remediation-redevelopment',
     number: '01',
+    title: 'Assessment, Remediation, and Redevelopment',
+    short:
+      'Understand contamination, evaluate response options, and support productive reuse.',
+    intro:
+      'AEC evaluates environmental conditions and develops responsible pathways for remediation, restoration, and redevelopment.',
+    capabilities: [
+      {
+        title: 'Contamination Assessment',
+        details: [
+          'Due diligence, contamination delineation, and risk-focused investigation',
+        ],
+      },
+      {
+        title: 'Remediation and Site Closure',
+        details: [
+          'Remedial Action Plan',
+          'Remedial System Startup, Operation, and Maintenance',
+          'Risk-Based Site Closure',
+        ],
+      },
+      {
+        title: 'Redevelopment',
+        details: ['Brownfields'],
+      },
+    ],
+  },
+  {
+    slug: 'construction-support',
+    number: '02',
+    title: 'Construction Support Services',
+    short:
+      'Carry environmental requirements into the field from mobilization through closeout.',
+    intro:
+      'AEC integrates environmental planning, field oversight, and responsive technical support into active construction programs.',
+    capabilities: [
+      {
+        title: 'Environmental Regulatory Planning',
+        details: [
+          'SWPPPs / Stormwater Pollution Prevention Plans',
+          'Environmental protection and compliance planning',
+        ],
+      },
+      {
+        title: 'Environmental Compliance',
+        details: [
+          'Environmental compliance, monitoring, documentation, and field coordination',
+        ],
+      },
+      {
+        title: 'Air Quality Management',
+        details: ['Air Operating Permits', 'Air Quality Monitoring'],
+      },
+      {
+        title: 'Waste Management',
+        details: [
+          'Environmental Management',
+          'Environmental Remediation Construction',
+          'Facility Decommissioning',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'cultural-resources',
+    number: '03',
+    title: 'Cultural Resources',
+    short:
+      'Identify, document, and manage cultural resources throughout project planning and delivery.',
+    intro:
+      'AEC supports cultural-resource compliance through assessment, archaeology, cemetery studies, architectural history, and integrated management planning.',
+    capabilities: [
+      {
+        title: 'Assessment and Management',
+        details: [],
+      },
+      {
+        title: 'Terrestrial Archaeology',
+        details: [],
+      },
+      {
+        title: 'Maritime and Underwater Archaeology (AAUS Certification)',
+        details: [],
+      },
+      {
+        title: 'Cemetery Studies/Grave Relocation',
+        details: [],
+      },
+      {
+        title: 'Architectural History',
+        details: [],
+      },
+      {
+        title: 'Integrated Cultural Resource Management Plans',
+        details: [],
+      },
+    ],
+  },
+  {
+    slug: 'ecology-resources',
+    number: '04',
+    title: 'Ecological Services',
+    short:
+      'Address ecological, cultural, and workplace considerations early in project planning.',
+    intro:
+      'AEC supports responsible project decisions where natural resources, cultural resources, and industrial-hygiene needs intersect with development and construction.',
+    capabilities: [
+      {
+        title: 'Wetlands and Surface Water',
+        details: [
+          'Wetland and habitat assessment',
+          'Asbestos, lead-based paint, mold, and occupational-environment support',
+        ],
+      },
+      {
+        title: 'Endangered and Threatened Species',
+        details: [
+          'Wetlands, surface waters, listed species, habitat, and permitting support',
+        ],
+      },
+      {
+        title: 'Tree Survey and Tree Mitigation',
+        details: ['Cultural-resource assessment and coordination'],
+      },
+      {
+        title: 'Exotic and Invasive Species Management',
+        details: [],
+      },
+    ],
+  },
+  {
+    slug: 'engineering-services',
+    number: '05',
     title: 'Engineering Services',
     short:
       'Turn field observations and technical data into clear, defensible decisions.',
@@ -62,7 +198,7 @@ export const serviceGroups = [
       'AEC connects engineering judgment, field characterization, and environmental chemistry to define site conditions and guide practical next steps.',
     capabilities: [
       {
-        title: 'Contamination Assessment and Remediation',
+        title: 'Environmental Engineering',
         details: [],
       },
       {
@@ -76,100 +212,33 @@ export const serviceGroups = [
     ],
   },
   {
-    slug: 'ecology-resources',
-    number: '02',
-    title: 'Ecology, Health & Resources',
-    short:
-      'Address ecological, cultural, and workplace considerations early in project planning.',
-    intro:
-      'AEC supports responsible project decisions where natural resources, cultural resources, and industrial-hygiene needs intersect with development and construction.',
-    capabilities: [
-      {
-        title: 'Ecological and Industrial Hygiene',
-        details: [
-          'Wetland and habitat assessment',
-          'Asbestos, lead-based paint, mold, and occupational-environment support',
-        ],
-      },
-      {
-        title: 'Natural Resources',
-        details: [
-          'Wetlands, surface waters, listed species, habitat, and permitting support',
-        ],
-      },
-      {
-        title: 'Cultural Resources',
-        details: ['Cultural-resource assessment and coordination'],
-      },
-    ],
-  },
-  {
-    slug: 'assessment-redevelopment',
-    number: '03',
-    title: 'Assessment & Redevelopment',
-    short:
-      'Understand contamination, evaluate response options, and support productive reuse.',
-    intro:
-      'AEC evaluates environmental conditions and develops responsible pathways for remediation, restoration, and redevelopment.',
-    capabilities: [
-      {
-        title: 'Contamination Assessment',
-        details: [
-          'Due diligence, site assessment, delineation, and risk-focused investigation',
-        ],
-      },
-      {
-        title: 'Remediation / Restoration / Redevelopment',
-        details: [
-          'Remedial planning, restoration support, closure strategy, and redevelopment coordination',
-        ],
-      },
-    ],
-  },
-  {
-    slug: 'construction-support',
-    number: '04',
-    title: 'Construction Services',
-    short:
-      'Carry environmental requirements into the field from mobilization through closeout.',
-    intro:
-      'AEC integrates environmental planning, field oversight, and responsive technical support into active construction programs.',
-    capabilities: [
-      {
-        title: 'Construction Services',
-        details: [
-          'Environmental compliance, monitoring, documentation, and field coordination',
-        ],
-      },
-      {
-        title: 'Construction Support',
-        details: [
-          'Environmental Management',
-          'Environmental Remediation Construction',
-          'Facility Decommissioning',
-        ],
-      },
-    ],
-  },
-  {
-    slug: 'air-regulatory-planning',
-    number: '05',
-    title: 'Air & Regulatory Planning',
+    slug: 'industrial-hygiene-services',
+    number: '06',
+    title: 'Industrial Hygiene Services',
     short:
       'Translate air-quality and stormwater requirements into usable project plans.',
     intro:
       'AEC helps clients evaluate air pathways, plan mitigation, and document environmental requirements for construction and ongoing compliance.',
     capabilities: [
       {
-        title: 'Air Quality Consulting',
-        details: ['Indoor Air', 'Vapor Intrusion', 'Mitigation'],
+        title: 'Asbestos',
+        details: [],
       },
       {
-        title: 'Environmental Regulatory Plans',
-        details: [
-          'SWPPPs / Stormwater Pollution Prevention Plans',
-          'Environmental protection and compliance planning',
-        ],
+        title: 'Lead-Containing Paint',
+        details: [],
+      },
+      {
+        title: 'Mold',
+        details: [],
+      },
+      {
+        title: 'Health & Safety',
+        details: [],
+      },
+      {
+        title: 'Compliance Testing',
+        details: [],
       },
     ],
   },
