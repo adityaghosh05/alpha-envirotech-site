@@ -922,7 +922,6 @@ img {
 .project-map-canvas {
   position: relative;
   overflow: hidden;
-  min-height: 35rem;
   border: 1px solid rgb(23 110 170 / 18%);
   border-radius: 1.2rem;
   background:
@@ -931,10 +930,15 @@ img {
   padding: 1.5rem;
   box-shadow: 0 24px 70px rgb(8 24 56 / 8%);
 }
-.project-map-canvas > img {
+.project-map-stage {
+  position: relative;
+  max-width: 38rem;
+  margin-inline: auto;
+  aspect-ratio: 720 / 760;
+}
+.project-map-stage > img {
   width: 100%;
   height: 100%;
-  max-height: 40rem;
   object-fit: contain;
 }
 .project-map-marker {
@@ -980,10 +984,10 @@ img {
 }
 .project-map-popup {
   position: absolute;
-  left: 2.2rem;
-  bottom: 1.4rem;
+  left: 50%;
+  bottom: calc(100% + 0.5rem);
   width: max-content;
-  max-width: 16rem;
+  max-width: min(16rem, 60vw);
   border-radius: 0.75rem;
   background: var(--navy);
   padding: 1rem 1.2rem;
@@ -991,8 +995,8 @@ img {
   box-shadow: 0 14px 35px rgb(8 24 56 / 24%);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(0.5rem) scale(0.86);
-  transform-origin: left bottom;
+  transform: translate(-50%, 0.5rem) scale(0.86);
+  transform-origin: center bottom;
   transition:
     opacity 160ms ease,
     transform 180ms ease,
@@ -1003,7 +1007,7 @@ img {
 .project-map-marker:focus-visible .project-map-popup {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0) scale(1);
+  transform: translate(-50%, 0) scale(1);
   transition-delay: 0s;
 }
 .project-map-popup strong,

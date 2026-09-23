@@ -264,6 +264,18 @@ export const mapProjects = [
     x: 51,
     y: 66,
   },
+  {
+    city: 'Georgia',
+    projectName: 'Sample wetland assessment',
+    x: 41,
+    y: 54,
+  },
+  {
+    city: 'South Carolina',
+    projectName: 'Sample environmental permitting',
+    x: 57,
+    y: 48,
+  },
 ];
 
 export const sectors = [
