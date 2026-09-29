@@ -1231,7 +1231,8 @@ img {
   background: var(--navy);
   box-shadow: 0 24px 70px rgb(8 24 56 / 14%);
 }
-.video-frame iframe {
+.video-frame iframe,
+.video-frame video {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -1377,6 +1378,10 @@ img {
   border: 1px solid rgb(255 255 255 / 14%);
   border-radius: 1rem;
   background: rgb(255 255 255 / 5%);
+}
+.company-data-single {
+  width: max-content;
+  max-width: 100%;
 }
 .company-data > div {
   padding: 1.2rem;

@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { CheckCircle2 } from 'lucide-react';
 import { PageHero } from '@/components/page-hero';
 import { ProjectCta } from '@/components/project-cta';
-import { ClippedYouTubeVideo } from '@/components/clipped-youtube-video';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { companyData } from '@/lib/site-data';
@@ -199,7 +198,19 @@ export default function AboutPage() {
               </div>
               <div className="leader-video-grid">
                 <div className="video-frame">
-                  <ClippedYouTubeVideo />
+                  <video
+                    controls
+                    preload="metadata"
+                    playsInline
+                    poster="/images/amy-fu-video-poster.jpg"
+                    aria-label="Amy Fu interview, first 1 minute 10 seconds"
+                  >
+                    <source
+                      src="/videos/amy-fu-interview-70s.mp4"
+                      type="video/mp4"
+                    />
+                    Your browser does not support this video.
+                  </video>
                 </div>
                 <div>
                   <div className="video-frame">
