@@ -1223,12 +1223,6 @@ img {
   display: grid;
   gap: 1.5rem;
 }
-.leader-video-title {
-  margin-bottom: 0.75rem;
-  color: var(--navy);
-  font-size: 1.05rem;
-  font-weight: 750;
-}
 .video-frame {
   position: relative;
   overflow: hidden;
@@ -1606,6 +1600,12 @@ img {
   }
   .company-data > div:nth-child(odd) {
     border-right: 1px solid rgb(255 255 255 / 12%);
+  }
+  .company-data.company-data-single {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .company-data.company-data-single > div {
+    border-right: 0;
   }
 }
 

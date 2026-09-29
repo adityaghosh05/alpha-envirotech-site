@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { CheckCircle2 } from 'lucide-react';
 import { PageHero } from '@/components/page-hero';
 import { ProjectCta } from '@/components/project-cta';
+import { ClippedYouTubeVideo } from '@/components/clipped-youtube-video';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { companyData } from '@/lib/site-data';
@@ -197,21 +198,10 @@ export default function AboutPage() {
                 <h3>Meet Amy Fu</h3>
               </div>
               <div className="leader-video-grid">
-                <div>
-                  <h4 className="leader-video-title">Meet Amy Fu</h4>
-                  <div className="video-frame">
-                    <iframe
-                      src="https://www.youtube-nocookie.com/embed/LcnZ_DS-yEc?rel=0&amp;end=70"
-                      title="Meet Amy Fu, founder and president of Alpha Envirotech Consulting (first 1 minute 10 seconds)"
-                      loading="lazy"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allowFullScreen
-                    />
-                  </div>
+                <div className="video-frame">
+                  <ClippedYouTubeVideo />
                 </div>
                 <div>
-                  <h4 className="leader-video-title">More from Amy Fu</h4>
                   <div className="video-frame">
                     <iframe
                       src="https://www.youtube-nocookie.com/embed/cbEo8OnA9As?rel=0"
@@ -233,7 +223,7 @@ export default function AboutPage() {
             <h2 className="section-title mt-4 max-w-3xl text-white">
               Ready for public and private teaming.
             </h2>
-            <dl className="company-data mt-10">
+            <dl className="company-data company-data-single mt-10">
               {companyData.map(([term, value]) => (
                 <div key={term}>
                   <dt>{term}</dt>
