@@ -913,15 +913,18 @@ img {
 /* Projects */
 .project-map-layout {
   display: grid;
-  gap: 3rem;
+  gap: 2.5rem;
   align-items: center;
+}
+.project-map-layout > div:first-child {
+  max-width: 46rem;
 }
 .project-map {
   margin: 0;
 }
 .project-map-canvas {
   position: relative;
-  overflow: hidden;
+  overflow-x: auto;
   border: 1px solid rgb(23 110 170 / 18%);
   border-radius: 1.2rem;
   background:
@@ -932,9 +935,10 @@ img {
 }
 .project-map-stage {
   position: relative;
-  max-width: 38rem;
+  width: max(40rem, 100%);
+  max-width: 68rem;
   margin-inline: auto;
-  aspect-ratio: 720 / 760;
+  aspect-ratio: 550 / 455;
 }
 .project-map-stage > img {
   width: 100%;
@@ -954,16 +958,17 @@ img {
   cursor: pointer;
 }
 .project-map-marker:hover,
-.project-map-marker:focus-visible {
-  z-index: 2;
+.project-map-marker:focus-visible,
+.project-map-marker:target {
+  z-index: 3;
   outline: none;
 }
 .project-map-pin {
   display: grid;
-  width: 2.8rem;
-  height: 2.8rem;
+  width: 1.25rem;
+  height: 1.25rem;
   place-items: center;
-  border: 4px solid white;
+  border: 2px solid white;
   border-radius: 999px;
   background: var(--green);
   color: white;
@@ -973,11 +978,12 @@ img {
     box-shadow 180ms ease;
 }
 .project-map-pin svg {
-  width: 1.25rem;
+  width: 0.7rem;
 }
 .project-map-marker:hover .project-map-pin,
-.project-map-marker:focus-visible .project-map-pin {
-  transform: scale(1.12);
+.project-map-marker:focus-visible .project-map-pin,
+.project-map-marker:target .project-map-pin {
+  transform: scale(1.35);
   box-shadow:
     0 0 0 5px rgb(23 145 89 / 18%),
     0 10px 28px rgb(8 24 56 / 30%);
@@ -1004,11 +1010,26 @@ img {
   pointer-events: none;
 }
 .project-map-marker:hover .project-map-popup,
-.project-map-marker:focus-visible .project-map-popup {
+.project-map-marker:focus-visible .project-map-popup,
+.project-map-marker:target .project-map-popup {
   opacity: 1;
   visibility: visible;
   transform: translate(-50%, 0) scale(1);
   transition-delay: 0s;
+}
+.project-map-marker[data-edge='right'] .project-map-popup {
+  left: auto;
+  right: 0;
+  transform: translate(0, 0.5rem) scale(0.86);
+  transform-origin: right bottom;
+}
+.project-map-marker[data-edge='right']:is(:hover, :focus-visible, :target) .project-map-popup {
+  transform: translate(0, 0) scale(1);
+}
+.project-map-marker[data-popup='below'] .project-map-popup {
+  top: calc(100% + 0.5rem);
+  bottom: auto;
+  transform-origin: center top;
 }
 .project-map-popup strong,
 .project-map-popup span {
@@ -1029,6 +1050,41 @@ img {
   color: var(--muted-foreground);
   font-size: 0.82rem;
   line-height: 1.5;
+}
+.project-map-locations {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.project-map-location-group {
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: white;
+  padding: 1.4rem;
+}
+.project-map-location-group h3 {
+  color: var(--navy);
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+.project-map-location-group ul {
+  display: grid;
+  gap: 0.35rem 1rem;
+  margin-top: 0.8rem;
+}
+.project-map-location-group a {
+  display: inline-block;
+  border-radius: 0.3rem;
+  color: var(--blue);
+  line-height: 1.5;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.2rem;
+}
+.project-map-location-group a:hover,
+.project-map-location-group a:focus-visible {
+  text-decoration-color: currentColor;
 }
 .project-image-grid {
   display: grid;
@@ -1615,6 +1671,15 @@ img {
 }
 
 @media (min-width: 720px) {
+  .project-map-locations {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .project-map-location-group:first-child {
+    grid-column: 1 / -1;
+  }
+  .project-map-location-group:first-child ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .service-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1643,6 +1708,9 @@ img {
 }
 
 @media (min-width: 960px) {
+  .project-map-location-group:first-child ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
   .split-heading {
     grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.7fr);
   }
@@ -1678,7 +1746,6 @@ img {
   .contact-layout {
     grid-template-columns: minmax(18rem, 0.62fr) minmax(0, 1fr);
   }
-  .project-map-layout,
   .careers-intro {
     grid-template-columns: minmax(18rem, 0.62fr) minmax(0, 1fr);
   }

@@ -1,5 +1,7 @@
 import { MapPin } from 'lucide-react';
-import { mapProjects } from '@/lib/site-data';
+import { mapLocations } from '@/lib/site-data';
+
+const mapStates = ['Florida', 'Alabama', 'Mississippi', 'Georgia'];
 
 export function ProjectMap() {
   return (
@@ -8,31 +10,48 @@ export function ProjectMap() {
         <div className="project-map-stage">
           <img
             src="/images/projects/project-region.svg"
-            alt="Map of the southeastern and eastern United States, including Mississippi, from Florida through Pennsylvania"
+            alt="Map of Florida, Alabama, Mississippi, and Georgia"
           />
-          {mapProjects.map((project) => (
+          {mapLocations.map((location) => (
             <button
               type="button"
               className="project-map-marker"
-              key={`${project.city}-${project.projectName}`}
-              style={{ left: `${project.x}%`, top: `${project.y}%` }}
-              aria-label={`${project.city}: ${project.projectName}`}
+              id={`map-${location.id}`}
+              key={location.id}
+              style={{ left: `${location.x}%`, top: `${location.y}%` }}
+              aria-label={`${location.name}, ${location.state}`}
+              data-edge={location.x > 80 ? 'right' : undefined}
+              data-popup={location.y < 20 ? 'below' : undefined}
             >
               <span className="project-map-pin" aria-hidden="true">
                 <MapPin />
               </span>
               <span className="project-map-popup" aria-hidden="true">
-                <strong>{project.city}</strong>
-                <span>{project.projectName}</span>
+                <strong>{location.name}</strong>
+                <span>{location.state}</span>
               </span>
             </button>
           ))}
         </div>
       </div>
       <figcaption>
-        Illustrative sample projects; locations are approximate. Confirmed
-        project details will be added as approved for publication.
+        Select a marker or location below to see its name. Map positions are
+        approximate; county markers show a central point.
       </figcaption>
+      <div className="project-map-locations" aria-label="Map locations by state">
+        {mapStates.map((state) => (
+          <div className="project-map-location-group" key={state}>
+            <h3>{state}</h3>
+            <ul>
+              {mapLocations.filter((location) => location.state === state).map((location) => (
+                <li key={location.id}>
+                  <a href={`#map-${location.id}`}>{location.name}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
     </figure>
   );
 }

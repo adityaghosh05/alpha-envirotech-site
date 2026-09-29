@@ -319,31 +319,27 @@ export const markets = [
   },
 ];
 
-export const mapProjects = [
-  {
-    city: 'Jacksonville, Florida',
-    projectName: 'Sample Project',
-    x: 56.5,
-    y: 66,
-  },
-  {
-    city: 'Georgia',
-    projectName: 'Sample wetland assessment',
-    x: 47.5,
-    y: 54,
-  },
-  {
-    city: 'South Carolina',
-    projectName: 'Sample environmental permitting',
-    x: 61.8,
-    y: 48,
-  },
-  {
-    city: 'Mississippi',
-    projectName: 'Sample project',
-    x: 9,
-    y: 54.5,
-  },
+// Approximate positions on the focused four-state illustration.
+export const mapLocations = [
+  { id: 'jacksonville', name: 'Jacksonville', state: 'Florida', x: 88.0, y: 43.1 },
+  { id: 'yulee', name: 'Yulee', state: 'Florida', x: 88.8, y: 40.4 },
+  { id: 'keystone-heights', name: 'Keystone Heights', state: 'Florida', x: 84.2, y: 48.0 },
+  { id: 'st-augustine', name: 'St. Augustine', state: 'Florida', x: 90.8, y: 47.0 },
+  { id: 'green-cove-springs', name: 'Green Cove Springs', state: 'Florida', x: 87.6, y: 46.1 },
+  { id: 'astor', name: 'Astor', state: 'Florida', x: 88.1, y: 53.7 },
+  { id: 'miami', name: 'Miami', state: 'Florida', x: 97.2, y: 86.3 },
+  { id: 'st-petersburg', name: 'St. Petersburg', state: 'Florida', x: 76.8, y: 66.8 },
+  { id: 'fernandina-beach', name: 'Fernandina Beach', state: 'Florida', x: 90.1, y: 40.1 },
+  { id: 'avon-park', name: 'Avon Park', state: 'Florida', x: 86.9, y: 68.4 },
+  { id: 'panama-city', name: 'Panama City', state: 'Florida', x: 51.5, y: 44.6 },
+  { id: 'mulberry', name: 'Mulberry', state: 'Florida', x: 83.0, y: 65.6 },
+  { id: 'monticello', name: 'Monticello', state: 'Florida', x: 68.1, y: 41.2 },
+  { id: 'westlake', name: 'Westlake', state: 'Florida', x: 98.1, y: 76.5 },
+  { id: 'nassau-county', name: 'Nassau County', state: 'Florida', x: 86.8, y: 40.6 },
+  { id: 'alachua-county', name: 'Alachua County', state: 'Florida', x: 81.0, y: 49.0 },
+  { id: 'albertville', name: 'Albertville', state: 'Alabama', x: 50.3, y: 9.4 },
+  { id: 'jackson', name: 'Jackson', state: 'Mississippi', x: 12.3, y: 25.8 },
+  { id: 'west-point', name: 'West Point', state: 'Georgia', x: 58.3, y: 20.9 },
 ];
 
 export const sectors = [

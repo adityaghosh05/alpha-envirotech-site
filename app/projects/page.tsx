@@ -22,18 +22,17 @@ export default function ProjectsPage() {
         <PageHero
           eyebrow="Projects"
           title="Environmental work grounded in place."
-          description="Explore the regional framework for AEC project locations, designed to grow as additional project examples are approved for publication."
+          description="Explore AEC locations across Florida, Alabama, Mississippi, and Georgia."
           image="construction"
         />
         <section className="section section-fog">
           <div className="site-shell project-map-layout">
             <div>
               <p className="eyebrow text-blue">Regional project map</p>
-              <h2 className="section-title mt-4">From Florida northward.</h2>
+              <h2 className="section-title mt-4">The places behind our work.</h2>
               <p className="section-intro mt-6">
-                AEC supports projects across varied regulatory, ecological, and
-                construction environments. This first map establishes a simple
-                structure for adding approved project locations over time.
+                Explore the cities and counties where AEC has worked across the
+                Southeast. Select a place on the map or in the list below it.
               </p>
             </div>
             <ProjectMap />
