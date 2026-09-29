@@ -9,7 +9,7 @@ export function ProjectMap() {
       <div className="project-map-canvas">
         <div className="project-map-stage">
           <img
-            src="/images/projects/project-region.svg"
+            src="/images/projects/project-region-southeast.svg"
             alt="Map of Florida, Alabama, Mississippi, and Georgia"
           />
           {mapLocations.map((location) => (

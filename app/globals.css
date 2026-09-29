@@ -965,8 +965,8 @@ img {
 }
 .project-map-pin {
   display: grid;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 0.9rem;
+  height: 0.9rem;
   place-items: center;
   border: 2px solid white;
   border-radius: 999px;
@@ -978,7 +978,7 @@ img {
     box-shadow 180ms ease;
 }
 .project-map-pin svg {
-  width: 0.7rem;
+  width: 0.55rem;
 }
 .project-map-marker:hover .project-map-pin,
 .project-map-marker:focus-visible .project-map-pin,
