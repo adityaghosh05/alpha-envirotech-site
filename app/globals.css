@@ -1219,6 +1219,16 @@ img {
 .leader-video-heading {
   text-align: center;
 }
+.leader-video-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+.leader-video-title {
+  margin-bottom: 0.75rem;
+  color: var(--navy);
+  font-size: 1.05rem;
+  font-weight: 750;
+}
 .video-frame {
   position: relative;
   overflow: hidden;
@@ -1439,6 +1449,10 @@ img {
   padding: clamp(1.25rem, 4vw, 2.5rem);
   box-shadow: 0 24px 70px rgb(8 24 56 / 8%);
 }
+.internship-form-card {
+  max-width: 54rem;
+  margin-inline: auto;
+}
 .inquiry-form [data-slot='field-group'] {
   gap: 1.5rem;
 }
@@ -1597,6 +1611,9 @@ img {
 
 @media (min-width: 720px) {
   .service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .leader-video-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .service-card:last-child {

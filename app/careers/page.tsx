@@ -3,6 +3,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { PageHero } from '@/components/page-hero';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
+import { InternshipForm } from '@/components/internship-form';
 
 export const dynamic = 'force-static';
 
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/careers/' },
 };
 
-const recruitingEmail = '[RECRUITING_EMAIL]';
+const recruitingEmail = 'info@aenvirotech.com';
 
 export default function CareersPage() {
   return (
@@ -77,13 +78,26 @@ export default function CareersPage() {
                 engineering, scientific, or related work and looking to learn
                 how careful technical practice supports real projects.
               </p>
-              <a
-                className="button mt-8"
-                href="mailto:[RECRUITING_EMAIL]?subject=Alpha%20Envirotech%20Internship%20Application"
-              >
+              <a className="button mt-8" href="#internship-application">
                 Apply Now <ArrowRight aria-hidden="true" />
               </a>
             </article>
+          </div>
+        </section>
+        <section
+          id="internship-application"
+          className="section section-white scroll-target"
+        >
+          <div className="site-shell">
+            <div className="form-card internship-form-card">
+              <p className="eyebrow text-blue">Internship application</p>
+              <h2 className="section-title mt-4">Tell us about yourself.</h2>
+              <p className="mt-4 mb-8 max-w-2xl text-muted-foreground">
+                Share a few details about your studies and interests. Our team
+                will follow up with you.
+              </p>
+              <InternshipForm />
+            </div>
           </div>
         </section>
       </main>

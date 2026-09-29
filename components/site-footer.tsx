@@ -58,7 +58,6 @@ export function SiteFooter() {
       <div className="border-t border-white/10">
         <div className="site-shell flex flex-col gap-2 py-5 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Alpha Envirotech Consulting, Inc.</p>
-          <p>CAGE 762WB · SAM UEI NM6CPALCNQL9 · CA29370</p>
           <a className="back-to-top" href="#top">
             Back to top <span aria-hidden="true">↑</span>
           </a>

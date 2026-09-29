@@ -1,9 +1,14 @@
 type Inquiry = {
+  formType: 'contact' | 'internship';
   firstName: string;
   lastName: string;
   organization: string;
   email: string;
   message: string;
+  school: string;
+  major: string;
+  year: string;
+  phone: string;
   turnstileToken: string;
   submissionId: string;
   website: string;
@@ -35,11 +40,16 @@ function escapeHtml(value: string) {
 
 function parseInquiry(raw: Record<string, unknown>): Inquiry | null {
   const inquiry: Inquiry = {
+    formType: raw.formType === 'internship' ? 'internship' : 'contact',
     firstName: clean(raw.firstName, 80),
     lastName: clean(raw.lastName, 80),
     organization: clean(raw.organization, 160),
     email: clean(raw.email, 200).toLowerCase(),
     message: clean(raw.message, 3000),
+    school: clean(raw.school, 160),
+    major: clean(raw.major, 120),
+    year: clean(raw.year, 40),
+    phone: clean(raw.phone, 40),
     turnstileToken: clean(raw.turnstileToken, 2048),
     submissionId: clean(raw.submissionId, 80),
     website: clean(raw.website, 200),
@@ -47,16 +57,19 @@ function parseInquiry(raw: Record<string, unknown>): Inquiry | null {
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const idPattern = /^[a-zA-Z0-9-]{16,80}$/;
-  if (
+  const commonInvalid =
     inquiry.firstName.length < 1 ||
     inquiry.lastName.length < 1 ||
-    inquiry.organization.length < 2 ||
     !emailPattern.test(inquiry.email) ||
-    inquiry.message.length < 10 ||
     !inquiry.turnstileToken ||
-    !idPattern.test(inquiry.submissionId)
-  )
-    return null;
+    !idPattern.test(inquiry.submissionId);
+  const detailsInvalid =
+    inquiry.formType === 'internship'
+      ? inquiry.school.length < 2 ||
+        inquiry.major.length < 2 ||
+        inquiry.year.length < 1
+      : inquiry.organization.length < 2 || inquiry.message.length < 10;
+  if (commonInvalid || detailsInvalid) return null;
 
   return inquiry;
 }
@@ -162,19 +175,33 @@ export async function POST(request: Request) {
     );
   }
 
-  const rows = [
-    ['First name', inquiry.firstName],
-    ['Last name', inquiry.lastName],
-    ['Organization', inquiry.organization],
-    ['Email', inquiry.email],
-  ];
+  const rows =
+    inquiry.formType === 'internship'
+      ? [
+          ['Name', `${inquiry.firstName} ${inquiry.lastName}`],
+          ['Email', inquiry.email],
+          ['School', inquiry.school],
+          ['Major / field of study', inquiry.major],
+          ['Year in school', inquiry.year],
+          ['Phone', inquiry.phone || 'Not provided'],
+        ]
+      : [
+          ['First name', inquiry.firstName],
+          ['Last name', inquiry.lastName],
+          ['Organization', inquiry.organization],
+          ['Email', inquiry.email],
+        ];
   const text = [
-    'New Alpha Envirotech website inquiry',
+    inquiry.formType === 'internship'
+      ? 'New Alpha Envirotech internship application'
+      : 'New Alpha Envirotech website inquiry',
     '',
     ...rows.map(([label, value]) => `${label}: ${value}`),
-    '',
-    'Message:',
-    inquiry.message,
+    ...(inquiry.formType === 'internship'
+      ? inquiry.message
+        ? ['', 'Additional information:', inquiry.message]
+        : []
+      : ['', 'Message:', inquiry.message]),
   ].join('\n');
   const htmlRows = rows
     .map(
@@ -182,7 +209,13 @@ export async function POST(request: Request) {
         `<tr><th style="padding:8px 14px 8px 0;text-align:left;vertical-align:top;color:#52645b">${escapeHtml(label)}</th><td style="padding:8px 0;vertical-align:top">${escapeHtml(value)}</td></tr>`,
     )
     .join('');
-  const html = `<div style="font-family:Arial,sans-serif;color:#17251f;line-height:1.5"><h1 style="color:#081838">New website message</h1><table style="border-collapse:collapse">${htmlRows}</table><h2 style="margin-top:28px;color:#081838">Message</h2><p style="white-space:pre-wrap">${escapeHtml(inquiry.message)}</p></div>`;
+  const extraHtml =
+    inquiry.formType === 'internship'
+      ? inquiry.message
+        ? `<h2 style="margin-top:28px;color:#081838">Additional information</h2><p style="white-space:pre-wrap">${escapeHtml(inquiry.message)}</p>`
+        : ''
+      : `<h2 style="margin-top:28px;color:#081838">Message</h2><p style="white-space:pre-wrap">${escapeHtml(inquiry.message)}</p>`;
+  const html = `<div style="font-family:Arial,sans-serif;color:#17251f;line-height:1.5"><h1 style="color:#081838">${inquiry.formType === 'internship' ? 'New internship application' : 'New website message'}</h1><table style="border-collapse:collapse">${htmlRows}</table>${extraHtml}</div>`;
 
   try {
     const delivery = await fetch('https://api.resend.com/emails', {
@@ -196,7 +229,10 @@ export async function POST(request: Request) {
         from,
         to: recipients,
         reply_to: inquiry.email,
-        subject: `[AEC website] Message from ${inquiry.firstName} ${inquiry.lastName} — ${inquiry.organization}`,
+        subject:
+          inquiry.formType === 'internship'
+            ? `[AEC website] Internship application from ${inquiry.firstName} ${inquiry.lastName}`
+            : `[AEC website] Message from ${inquiry.firstName} ${inquiry.lastName} — ${inquiry.organization}`,
         text,
         html,
         tags: [{ name: 'source', value: 'website' }],

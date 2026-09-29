@@ -8,7 +8,7 @@ export function ProjectMap() {
         <div className="project-map-stage">
           <img
             src="/images/projects/project-region.svg"
-            alt="Map of the southeastern and eastern United States from Florida through Pennsylvania"
+            alt="Map of the southeastern and eastern United States, including Mississippi, from Florida through Pennsylvania"
           />
           {mapProjects.map((project) => (
             <button

@@ -196,15 +196,33 @@ export default function AboutPage() {
                 <p className="eyebrow text-blue">In her own words</p>
                 <h3>Meet Amy Fu</h3>
               </div>
-              <div className="video-frame">
-                <iframe
-                  src="https://www.youtube-nocookie.com/embed/LcnZ_DS-yEc?rel=0"
-                  title="Meet Amy Fu, founder and president of Alpha Envirotech Consulting"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
+              <div className="leader-video-grid">
+                <div>
+                  <h4 className="leader-video-title">Meet Amy Fu</h4>
+                  <div className="video-frame">
+                    <iframe
+                      src="https://www.youtube-nocookie.com/embed/LcnZ_DS-yEc?rel=0&amp;end=70"
+                      title="Meet Amy Fu, founder and president of Alpha Envirotech Consulting (first 1 minute 10 seconds)"
+                      loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    />
+                  </div>
+                </div>
+                <div>
+                  <h4 className="leader-video-title">More from Amy Fu</h4>
+                  <div className="video-frame">
+                    <iframe
+                      src="https://www.youtube-nocookie.com/embed/cbEo8OnA9As?rel=0"
+                      title="Additional video featuring Amy Fu"
+                      loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -323,20 +323,26 @@ export const mapProjects = [
   {
     city: 'Jacksonville, Florida',
     projectName: 'Sample Project',
-    x: 51,
+    x: 56.5,
     y: 66,
   },
   {
     city: 'Georgia',
     projectName: 'Sample wetland assessment',
-    x: 41,
+    x: 47.5,
     y: 54,
   },
   {
     city: 'South Carolina',
     projectName: 'Sample environmental permitting',
-    x: 57,
+    x: 61.8,
     y: 48,
+  },
+  {
+    city: 'Mississippi',
+    projectName: 'Sample project',
+    x: 9,
+    y: 54.5,
   },
 ];
 
@@ -354,9 +360,5 @@ export const sectors = [
 ];
 
 export const companyData = [
-  ['SAM Unique Entity ID', 'NM6CPALCNQL9'],
-  ['CAGE Code', '762WB'],
-  ['DUNS Number', '042865895'],
   ['NAICS Codes', '541620, 541330, 541690, 541990, 562910'],
-  ['Certificate of Authorization', 'CA29370'],
 ];
