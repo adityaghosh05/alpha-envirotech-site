@@ -1621,9 +1621,6 @@ img {
   .leader-video-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .service-card:last-child {
-    grid-column: span 2;
-  }
   .experience-preview-grid,
   .experience-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1650,14 +1647,8 @@ img {
     grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.7fr);
   }
   .service-grid {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-auto-rows: 1fr;
-  }
-  .service-card {
-    grid-column: span 2;
-  }
-  .service-card:nth-child(-n + 2) {
-    grid-column: span 3;
   }
   .proof-layout {
     grid-template-columns: minmax(0, 1.1fr) minmax(20rem, 0.7fr);
@@ -1666,7 +1657,7 @@ img {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .service-index {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .service-detail {
     grid-template-columns: minmax(0, 1.1fr) minmax(20rem, 0.8fr);
