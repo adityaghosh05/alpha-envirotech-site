@@ -10,7 +10,7 @@ export const dynamic = 'force-static';
 export const metadata: Metadata = {
   title: 'Projects',
   description:
-    'A geographic view of Alpha Envirotech project activity across the southeastern and eastern United States.',
+    'A geographic view of Alpha Envirotech project activity across five southeastern states.',
   alternates: { canonical: '/projects/' },
 };
 
@@ -22,7 +22,7 @@ export default function ProjectsPage() {
         <PageHero
           eyebrow="Projects"
           title="Environmental work grounded in place."
-          description="Explore AEC locations across Florida, Alabama, Mississippi, and Georgia."
+          description="Explore AEC locations across Florida, Alabama, Mississippi, Georgia, and South Carolina."
           image="construction"
         />
         <section className="section section-fog">

@@ -319,7 +319,8 @@ export const markets = [
   },
 ];
 
-// Approximate positions on the focused four-state illustration.
+// Approximate positions on the focused Southeast illustration. County markers use
+// a central point; closely spaced northeast Florida locations remain distinct.
 export const mapLocations = [
   { id: 'jacksonville', name: 'Jacksonville', state: 'Florida', x: 84.8, y: 45.2 },
   { id: 'yulee', name: 'Yulee', state: 'Florida', x: 84.4, y: 43.5 },
@@ -340,6 +341,8 @@ export const mapLocations = [
   { id: 'albertville', name: 'Albertville', state: 'Alabama', x: 50.3, y: 9.4 },
   { id: 'jackson', name: 'Jackson', state: 'Mississippi', x: 12.3, y: 25.8 },
   { id: 'west-point', name: 'West Point', state: 'Georgia', x: 58.3, y: 20.9 },
+  { id: 'kings-bay', name: 'Kings Bay', state: 'Georgia', x: 85.0, y: 40.4 },
+  { id: 'parris-island', name: 'Parris Island', state: 'South Carolina', x: 91.7, y: 26.4 },
 ];
 
 export const sectors = [

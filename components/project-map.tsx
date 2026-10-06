@@ -1,7 +1,6 @@
-import { MapPin } from 'lucide-react';
 import { mapLocations } from '@/lib/site-data';
 
-const mapStates = ['Florida', 'Alabama', 'Mississippi', 'Georgia'];
+const mapStates = ['Florida', 'Alabama', 'Mississippi', 'Georgia', 'South Carolina'];
 
 export function ProjectMap() {
   return (
@@ -10,7 +9,7 @@ export function ProjectMap() {
         <div className="project-map-stage">
           <img
             src="/images/projects/project-region-southeast.svg"
-            alt="Map of Florida, Alabama, Mississippi, and Georgia"
+            alt="Map of project locations across Florida, Alabama, Mississippi, Georgia, and South Carolina"
           />
           {mapLocations.map((location) => (
             <button
@@ -23,9 +22,7 @@ export function ProjectMap() {
               data-edge={location.x > 80 ? 'right' : undefined}
               data-popup={location.y < 20 ? 'below' : undefined}
             >
-              <span className="project-map-pin" aria-hidden="true">
-                <MapPin />
-              </span>
+              <span className="project-map-pin" aria-hidden="true" />
               <span className="project-map-popup" aria-hidden="true">
                 <strong>{location.name}</strong>
                 <span>{location.state}</span>
@@ -35,8 +32,8 @@ export function ProjectMap() {
         </div>
       </div>
       <figcaption>
-        Select a marker or location below to see its name. Map positions are
-        approximate; county markers show a central point.
+        Select a dot or a location below to see its name. Positions are
+        approximate; county locations use a central point.
       </figcaption>
       <div className="project-map-locations" aria-label="Map locations by state">
         {mapStates.map((state) => (

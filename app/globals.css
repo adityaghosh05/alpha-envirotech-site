@@ -948,6 +948,10 @@ img {
 .project-map-marker {
   position: absolute;
   z-index: 1;
+  display: grid;
+  width: 1.65rem;
+  height: 1.65rem;
+  place-items: center;
   margin: 0;
   border: 0;
   background: transparent;
@@ -961,32 +965,31 @@ img {
 .project-map-marker:focus-visible,
 .project-map-marker:target {
   z-index: 3;
-  outline: none;
+}
+.project-map-marker:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+  border-radius: 999px;
 }
 .project-map-pin {
-  display: grid;
-  width: 0.9rem;
-  height: 0.9rem;
-  place-items: center;
-  border: 2px solid white;
+  display: block;
+  width: 0.78rem;
+  height: 0.78rem;
+  border: 2.5px solid white;
   border-radius: 999px;
   background: var(--green);
-  color: white;
-  box-shadow: 0 8px 24px rgb(8 24 56 / 26%);
+  box-shadow: 0 1px 5px rgb(8 24 56 / 42%);
   transition:
     transform 180ms ease,
     box-shadow 180ms ease;
 }
-.project-map-pin svg {
-  width: 0.55rem;
-}
 .project-map-marker:hover .project-map-pin,
 .project-map-marker:focus-visible .project-map-pin,
 .project-map-marker:target .project-map-pin {
-  transform: scale(1.35);
+  transform: scale(1.25);
   box-shadow:
-    0 0 0 5px rgb(23 145 89 / 18%),
-    0 10px 28px rgb(8 24 56 / 30%);
+    0 0 0 4px rgb(23 145 89 / 20%),
+    0 2px 8px rgb(8 24 56 / 30%);
 }
 .project-map-popup {
   position: absolute;
