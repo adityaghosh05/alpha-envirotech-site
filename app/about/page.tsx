@@ -229,12 +229,12 @@ export default function AboutPage() {
           </div>
         </section>
         <section className="section section-navy">
-          <div className="site-shell">
+          <div className="site-shell text-center">
             <p className="eyebrow text-green-light">Company identifiers</p>
-            <h2 className="section-title mt-4 max-w-3xl text-white">
+            <h2 className="section-title mx-auto mt-4 max-w-3xl text-white">
               Ready for public and private teaming.
             </h2>
-            <dl className="company-data company-data-single mt-10">
+            <dl className="company-data company-data-single mx-auto mt-10">
               {companyData.map(([term, value]) => (
                 <div key={term}>
                   <dt>{term}</dt>
