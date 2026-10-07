@@ -67,21 +67,15 @@ export const serviceGroups = [
     capabilities: [
       {
         title: 'Contamination Assessment',
-        details: [
-          'Due diligence, contamination delineation, and risk-focused investigation',
-        ],
+        details: [],
       },
       {
         title: 'Remediation and Site Closure',
-        details: [
-          'Remedial Action Plan',
-          'Remedial System Startup, Operation, and Maintenance',
-          'Risk-Based Site Closure',
-        ],
+        details: [],
       },
       {
-        title: 'Redevelopment',
-        details: ['Brownfields'],
+        title: 'Brownfields Redevelopment',
+        details: [],
       },
     ],
   },
@@ -92,32 +86,23 @@ export const serviceGroups = [
     short:
       'Carry environmental requirements into the field from mobilization through closeout.',
     intro:
-      'AEC integrates environmental planning, field oversight, and responsive technical support into active construction programs.',
+      'AEC integrates environmental planning, compliance, field oversight, and responsive technical support into active construction programs.',
     capabilities: [
       {
         title: 'Environmental Regulatory Planning',
-        details: [
-          'SWPPPs / Stormwater Pollution Prevention Plans',
-          'Environmental protection and compliance planning',
-        ],
+        details: [],
       },
       {
         title: 'Environmental Compliance',
-        details: [
-          'Environmental compliance, monitoring, documentation, and field coordination',
-        ],
+        details: [],
       },
       {
         title: 'Air Quality Management',
-        details: ['Air Operating Permits', 'Air Quality Monitoring'],
+        details: [],
       },
       {
         title: 'Waste Management',
-        details: [
-          'Environmental Management',
-          'Environmental Remediation Construction',
-          'Facility Decommissioning',
-        ],
+        details: [],
       },
     ],
   },
@@ -128,10 +113,10 @@ export const serviceGroups = [
     short:
       'Identify, document, and manage cultural resources throughout project planning and delivery.',
     intro:
-      'AEC supports cultural-resource compliance through assessment, archaeology, cemetery studies, architectural history, and integrated management planning.',
+      'AEC supports cultural-resource compliance through assessment, archaeology, architectural history, and integrated management planning.',
     capabilities: [
       {
-        title: 'Assessment and Management',
+        title: 'Assessment and Mitigation',
         details: [],
       },
       {
@@ -140,10 +125,6 @@ export const serviceGroups = [
       },
       {
         title: 'Maritime and Underwater Archaeology (AAUS Certification)',
-        details: [],
-      },
-      {
-        title: 'Cemetery Studies/Grave Relocation',
         details: [],
       },
       {
@@ -167,20 +148,15 @@ export const serviceGroups = [
     capabilities: [
       {
         title: 'Wetlands and Surface Water',
-        details: [
-          'Wetland and habitat assessment',
-          'Asbestos, lead-based paint, mold, and occupational-environment support',
-        ],
+        details: [],
       },
       {
         title: 'Endangered and Threatened Species',
-        details: [
-          'Wetlands, surface waters, listed species, habitat, and permitting support',
-        ],
+        details: [],
       },
       {
         title: 'Tree Survey and Tree Mitigation',
-        details: ['Cultural-resource assessment and coordination'],
+        details: [],
       },
       {
         title: 'Exotic and Invasive Species Management',
@@ -303,7 +279,7 @@ export const markets = [
     slug: 'federal',
     number: '02',
     title: 'Federal',
-    copy: 'Responsive environmental support for complex federal planning, design-build, construction, and compliance environments.',
+    copy: 'Responsive environmental support for complex federal planning, design-build, construction, and compliance projects.',
     image: '/images/projects/kings-bay-federal-construction.webp',
     fallback: '/images/projects/kings-bay-federal-construction.png',
     alt: 'Federal waterfront construction facility at Kings Bay',
@@ -329,6 +305,7 @@ export const mapLocations = [
   { id: 'green-cove-springs', name: 'Green Cove Springs', state: 'Florida', x: 83.9, y: 48.2 },
   { id: 'astor', name: 'Astor', state: 'Florida', x: 86.1, y: 55.5 },
   { id: 'miami', name: 'Miami', state: 'Florida', x: 95.4, y: 86.3 },
+  { id: 'miami-beach', name: 'Miami Beach', state: 'Florida', x: 96.4, y: 84.5 },
   { id: 'st-petersburg', name: 'St. Petersburg', state: 'Florida', x: 76.8, y: 66.8 },
   { id: 'fernandina-beach', name: 'Fernandina Beach', state: 'Florida', x: 85.5, y: 42.7 },
   { id: 'avon-park', name: 'Avon Park', state: 'Florida', x: 86.9, y: 68.4 },

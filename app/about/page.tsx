@@ -120,14 +120,17 @@ export default function AboutPage() {
           <div className="site-shell">
             <div className="section-heading split-heading">
               <div>
-                <p className="eyebrow text-green-light">Core values</p>
-                <h2 className="section-title mt-4 text-white">
-                  We Aim Higher.
+                <h2 className="section-title mt-4 text-green-light">
+                  Core Values
                 </h2>
+                <p className="section-intro mt-2 text-white/68">
+                  Help you help me
+                </p>
               </div>
               <p className="section-intro text-white/68">
-                Our standards are practical: do careful work, make responsible
-                decisions, and protect the trust placed in us.
+                Our standards are practical: be the help, do quality work, make
+                responsible decisions, protect the trust placed in us, and
+                strive to be better.
               </p>
             </div>
             <div className="core-values-grid mt-12">

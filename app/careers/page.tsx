@@ -24,7 +24,7 @@ export default function CareersPage() {
         <PageHero
           eyebrow="Work with us"
           title="Do the right thing. Do the work well."
-          description="AEC values meaningful technical work, professional responsibility, and the discipline to deliver work correctly."
+          description="AEC values quality technical work, professional responsibility, and the discipline to deliver work on time and on budget."
           image="engineering"
         />
         <section className="section section-white">
@@ -43,7 +43,7 @@ export default function CareersPage() {
               <ul className="careers-principles mt-8">
                 <li>
                   <CheckCircle2 aria-hidden="true" />
-                  Meaningful technical work
+                  Quality technical work
                 </li>
                 <li>
                   <CheckCircle2 aria-hidden="true" />
@@ -51,7 +51,7 @@ export default function CareersPage() {
                 </li>
                 <li>
                   <CheckCircle2 aria-hidden="true" />
-                  Quality without shortcuts
+                  On time and on budget
                 </li>
               </ul>
             </div>
