@@ -1,6 +1,13 @@
 import { mapLocations } from '@/lib/site-data';
 
 const mapStates = ['Florida', 'Alabama', 'Mississippi', 'Georgia', 'South Carolina'];
+const stateLabels = [
+  { name: 'Mississippi', x: 17, y: 16 },
+  { name: 'Alabama', x: 40, y: 24 },
+  { name: 'Georgia', x: 70, y: 18 },
+  { name: 'South Carolina', x: 84, y: 10 },
+  { name: 'Florida', x: 83, y: 74 },
+];
 
 export function ProjectMap() {
   return (
@@ -11,6 +18,16 @@ export function ProjectMap() {
             src="/images/projects/project-region-southeast.svg"
             alt="Map of project locations across Florida, Alabama, Mississippi, Georgia, and South Carolina"
           />
+          {stateLabels.map((state) => (
+            <span
+              className="project-map-state-label"
+              key={state.name}
+              style={{ left: `${state.x}%`, top: `${state.y}%` }}
+              aria-hidden="true"
+            >
+              {state.name}
+            </span>
+          ))}
           {mapLocations.map((location) => (
             <button
               type="button"

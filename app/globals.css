@@ -176,12 +176,25 @@ img {
   width: 100%;
   height: 100%;
 }
+.hero-home-photo-next {
+  z-index: 1;
+  animation: hero-photo-enter 1.2s ease-in-out both;
+}
+@keyframes hero-photo-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .hero-home-image {
   object-fit: cover;
   object-position: center;
 }
 .hero-home-overlay {
   position: absolute;
+  z-index: 2;
   inset: 0;
   background:
     linear-gradient(
@@ -308,6 +321,9 @@ img {
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .hero-home-photo-next {
+    display: none;
+  }
   html {
     scroll-behavior: auto;
   }
@@ -945,9 +961,22 @@ img {
   height: 100%;
   object-fit: contain;
 }
+.project-map-state-label {
+  position: absolute;
+  max-width: 9rem;
+  color: #174a69;
+  font-size: clamp(0.7rem, 1.15vw, 0.94rem);
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
 .project-map-marker {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   display: grid;
   width: 1.65rem;
   height: 1.65rem;
@@ -1304,6 +1333,7 @@ img {
 }
 .leader-portrait {
   overflow: hidden;
+  align-self: start;
   margin: 0;
   border: 1px solid var(--border);
   border-radius: 1rem;
@@ -1316,6 +1346,43 @@ img {
 }
 .leader-copy {
   align-self: center;
+}
+.leader-press {
+  display: flex;
+  grid-column: 1 / -1;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.2rem 2rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 0;
+}
+.leader-press-kicker {
+  flex-basis: 100%;
+  color: var(--ink);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 400;
+  letter-spacing: normal;
+  text-align: center;
+}
+.leader-press > div {
+  flex: 1 1 20rem;
+}
+.leader-press h3 {
+  color: var(--navy);
+  font-family: var(--font-body), sans-serif;
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.3;
+}
+.leader-press-source {
+  margin-top: 0.3rem;
+  color: var(--muted-foreground);
+  font-size: 0.95rem;
+}
+.leader-press .text-link {
+  flex: 0 0 auto;
 }
 .core-values-section {
   position: relative;
@@ -1396,6 +1463,19 @@ img {
   color: var(--muted-foreground);
   font-size: 1.05rem;
   line-height: 1.65;
+}
+.career-panel .career-panel-contact {
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+}
+.career-panel-contact a {
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.career-panel > .button svg {
+  width: 1.1rem;
+  height: 1.1rem;
 }
 .career-panel-accent {
   border-color: var(--navy-soft);

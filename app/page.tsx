@@ -1,4 +1,5 @@
 import { ArrowRight, Check, MapPinned, ShieldCheck } from 'lucide-react';
+import { HeroSlideshow } from '@/components/hero-slideshow';
 import { ProjectCta } from '@/components/project-cta';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
@@ -20,15 +21,7 @@ export default function Home() {
       <SiteHeader />
       <main>
         <section className="hero-home">
-          <picture>
-            <source srcSet="/images/wetland-egret.webp" type="image/webp" />
-            <img
-              className="hero-home-image"
-              src="/images/wetland-egret.jpg"
-              alt=""
-              fetchPriority="high"
-            />
-          </picture>
+          <HeroSlideshow />
           <div className="hero-home-overlay" />
           <div className="site-shell relative z-10 grid min-h-[min(760px,calc(100svh-76px))] items-end py-16 lg:grid-cols-[1.2fr_.8fr] lg:gap-16 lg:py-24">
             <div className="max-w-4xl">

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import { PageHero } from '@/components/page-hero';
 import { ProjectCta } from '@/components/project-cta';
 import { SiteFooter } from '@/components/site-footer';
@@ -194,6 +194,21 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
+            <aside className="leader-press" aria-label="Amy Fu in the news">
+              <p className="leader-press-kicker">In The Press</p>
+              <div>
+                <h3>Women of Influence: Amy Fu</h3>
+                <p className="leader-press-source">Jacksonville Business Journal</p>
+              </div>
+              <a
+                className="text-link"
+                href="https://www.bizjournals.com/jacksonville/c/women-of-influence-2026/42723/women-of-influence-amy-fu-of-alpha-envirotech-consulting-inc.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Read the article <ArrowUpRight aria-hidden="true" />
+              </a>
+            </aside>
             <div className="leader-video">
               <div className="leader-video-heading">
                 <p className="eyebrow text-blue">In her own words</p>

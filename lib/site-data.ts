@@ -271,9 +271,9 @@ export const markets = [
     number: '01',
     title: 'Public Works',
     copy: 'Environmental, engineering, permitting, and construction support for infrastructure and community-serving projects.',
-    image: '/images/projects/arlington-water-reclamation.webp',
-    fallback: '/images/projects/arlington-water-reclamation.jpg',
-    alt: 'Water reclamation facility infrastructure in Jacksonville',
+    image: '/images/home/fire-rescue-project.webp',
+    fallback: '/images/markets/fire-rescue-project.jpg',
+    alt: 'Fire truck outside a fire rescue station',
   },
   {
     slug: 'federal',
@@ -289,9 +289,9 @@ export const markets = [
     number: '03',
     title: 'Development Consulting',
     copy: 'Early environmental insight for property, land-development, redevelopment, and commercial decision-making.',
-    image: '/images/wetland-landscape.webp',
-    fallback: '/images/wetland-landscape.jpg',
-    alt: 'Wetland landscape representing environmental planning',
+    image: '/images/home/commercial-construction.webp',
+    fallback: '/images/markets/commercial-construction.jpg',
+    alt: 'Commercial building and surrounding site during construction',
   },
 ];
 

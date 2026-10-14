@@ -2,7 +2,7 @@ type PageHeroProps = {
   eyebrow: string;
   title: string;
   description: string;
-  image: 'wetland' | 'about' | 'construction' | 'engineering';
+  image: 'wetland' | 'about' | 'construction' | 'engineering' | 'markets';
 };
 
 const sources = {
@@ -15,6 +15,10 @@ const sources = {
   engineering: [
     '/images/engineering-hero-upscaled.webp',
     '/images/engineering-hero-upscaled.png',
+  ],
+  markets: [
+    '/images/home/waterfront-development.webp',
+    '/images/markets/waterfront-development.jpg',
   ],
 };
 

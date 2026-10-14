@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Upload } from 'lucide-react';
 import { PageHero } from '@/components/page-hero';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 };
 
 const recruitingEmail = 'info@aenvirotech.com';
+const resumeFileRequestUrl = process.env.NEXT_PUBLIC_DROPBOX_FILE_REQUEST_URL;
 
 export default function CareersPage() {
   return (
@@ -65,10 +66,30 @@ export default function CareersPage() {
               <p>We do not currently have any open positions posted.</p>
               <p>
                 We are always interested in hearing from talented professionals.
+                Send us your resume for future opportunities.
               </p>
-              <a className="text-link mt-6" href={`mailto:${recruitingEmail}`}>
-                {recruitingEmail} <ArrowRight aria-hidden="true" />
-              </a>
+              {resumeFileRequestUrl ? (
+                <>
+                  <a
+                    className="button mt-8"
+                    href={resumeFileRequestUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Upload aria-hidden="true" /> Upload your resume
+                  </a>
+                  <p className="career-panel-contact">
+                    Or email <a href={`mailto:${recruitingEmail}`}>{recruitingEmail}</a>
+                  </p>
+                </>
+              ) : (
+                <a
+                  className="button mt-8"
+                  href={`mailto:${recruitingEmail}?subject=${encodeURIComponent('Resume for future opportunities')}`}
+                >
+                  <ArrowRight aria-hidden="true" /> Email your resume
+                </a>
+              )}
             </article>
             <article className="career-panel career-panel-accent">
               <p className="eyebrow text-green-light">Internships</p>

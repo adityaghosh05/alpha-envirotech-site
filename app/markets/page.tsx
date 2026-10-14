@@ -24,7 +24,7 @@ export default function MarketsPage() {
           eyebrow="Markets"
           title="Technical perspective for distinct project environments."
           description="AEC brings environmental science, engineering, permitting, and construction insight to public, federal, and development teams."
-          image="wetland"
+          image="markets"
         />
         <section className="section section-white">
           <div className="site-shell">
