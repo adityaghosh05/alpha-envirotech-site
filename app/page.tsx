@@ -56,7 +56,7 @@ export default function Home() {
                 </div>
                 <div>
                   <dt>Based in</dt>
-                  <dd>Jacksonville</dd>
+                  <dd>Jacksonville, FL</dd>
                 </div>
                 <div>
                   <dt>Certified</dt>

@@ -68,28 +68,30 @@ export default function CareersPage() {
                 We are always interested in hearing from talented professionals.
                 Send us your resume for future opportunities.
               </p>
-              {resumeFileRequestUrl ? (
-                <>
+              {resumeFileRequestUrl && (
+                <p className="career-panel-contact">
+                  Or email <a href={`mailto:${recruitingEmail}`}>{recruitingEmail}</a>
+                </p>
+              )}
+              <div className="career-panel-action">
+                {resumeFileRequestUrl ? (
                   <a
-                    className="button mt-8"
+                    className="button"
                     href={resumeFileRequestUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <Upload aria-hidden="true" /> Upload your resume
                   </a>
-                  <p className="career-panel-contact">
-                    Or email <a href={`mailto:${recruitingEmail}`}>{recruitingEmail}</a>
-                  </p>
-                </>
-              ) : (
-                <a
-                  className="button mt-8"
-                  href={`mailto:${recruitingEmail}?subject=${encodeURIComponent('Resume for future opportunities')}`}
-                >
-                  <ArrowRight aria-hidden="true" /> Email your resume
-                </a>
-              )}
+                ) : (
+                  <a
+                    className="button"
+                    href={`mailto:${recruitingEmail}?subject=${encodeURIComponent('Resume for future opportunities')}`}
+                  >
+                    Email your resume <ArrowRight aria-hidden="true" />
+                  </a>
+                )}
+              </div>
             </article>
             <article className="career-panel career-panel-accent">
               <p className="eyebrow text-green-light">Internships</p>
@@ -99,9 +101,11 @@ export default function CareersPage() {
                 engineering, scientific, or related work and looking to learn
                 how careful technical practice supports real projects.
               </p>
-              <a className="button mt-8" href="#internship-application">
-                Apply Now <ArrowRight aria-hidden="true" />
-              </a>
+              <div className="career-panel-action">
+                <a className="button" href="#internship-application">
+                  Apply Now <ArrowRight aria-hidden="true" />
+                </a>
+              </div>
             </article>
           </div>
         </section>

@@ -1446,6 +1446,8 @@ img {
   color: var(--green);
 }
 .career-panel {
+  display: flex;
+  flex-direction: column;
   border: 1px solid var(--border);
   border-radius: 1rem;
   background: white;
@@ -1473,7 +1475,16 @@ img {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.career-panel > .button svg {
+.career-panel-action {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding-top: 2rem;
+}
+.career-panel-action .button {
+  min-width: 13rem;
+}
+.career-panel-action .button svg {
   width: 1.1rem;
   height: 1.1rem;
 }
@@ -1486,11 +1497,6 @@ img {
 }
 .career-panel-accent > p:not(.eyebrow) {
   color: rgb(255 255 255 / 68%);
-}
-.career-panel-accent > .button {
-  display: flex;
-  width: fit-content;
-  margin-inline: auto;
 }
 
 /* Compatibility routes */
