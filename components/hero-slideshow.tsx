@@ -48,7 +48,7 @@ export function HeroSlideshow() {
     const timer = window.setInterval(() => {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       setNext((pending) => pending ?? (currentRef.current + 1) % photos.length);
-    }, 6000);
+    }, 3500);
 
     return () => window.clearInterval(timer);
   }, []);
