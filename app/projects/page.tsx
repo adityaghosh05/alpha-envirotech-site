@@ -14,6 +14,17 @@ export const metadata: Metadata = {
   alternates: { canonical: '/projects/' },
 };
 
+const fieldPhotos = [
+  { src: '/images/field/pic1.webp', alt: 'Multistory building under construction at a downtown intersection', caption: 'Urban construction' },
+  { src: '/images/field/pic2.webp', alt: 'Excavated ground and utility pipe near a sports venue', caption: 'Site preparation' },
+  { src: '/images/field/pic3.webp', alt: 'Steel frame of a building under construction', caption: 'Structural construction' },
+  { src: '/images/field/pic4.webp', alt: 'Paved working waterfront with a marina and city skyline', caption: 'Working waterfront' },
+  { src: '/images/field/pic5.webp', alt: 'Construction site and road corridor beside a multistory building', caption: 'Construction corridor' },
+  { src: '/images/field/pic6.webp', alt: 'Pines and shrubs growing around a paved clearing', caption: 'Vegetated site' },
+  { src: '/images/field/pic7.webp', alt: 'Water-filled corridor through a pine forest', caption: 'Wooded waterway' },
+  { src: '/images/field/pic8.webp', alt: 'Concrete structure surrounded by pines and grasses', caption: 'Structure in a natural setting' },
+];
+
 export default function ProjectsPage() {
   return (
     <>
@@ -42,46 +53,23 @@ export default function ProjectsPage() {
           <div className="site-shell">
             <div className="section-heading split-heading">
               <div>
-                <p className="eyebrow text-blue">Project environments</p>
+                <p className="eyebrow text-blue">Field photography</p>
                 <h2 className="section-title mt-4">
                   Field conditions shape the work.
                 </h2>
               </div>
               <p className="section-intro">
-                Public infrastructure and federal construction settings call for
-                careful coordination, clear documentation, and responsive
-                environmental support.
+                A look at the built and natural environments that inform AEC&apos;s
+                environmental and construction work.
               </p>
             </div>
             <div className="project-image-grid mt-12">
-              <figure>
-                <picture>
-                  <source
-                    srcSet="/images/projects/arlington-water-reclamation.webp"
-                    type="image/webp"
-                  />
-                  <img
-                    src="/images/projects/arlington-water-reclamation.jpg"
-                    alt="Water reclamation facility infrastructure in Jacksonville"
-                    loading="lazy"
-                  />
-                </picture>
-                <figcaption>Public infrastructure</figcaption>
-              </figure>
-              <figure>
-                <picture>
-                  <source
-                    srcSet="/images/projects/kings-bay-federal-construction.webp"
-                    type="image/webp"
-                  />
-                  <img
-                    src="/images/projects/kings-bay-federal-construction.png"
-                    alt="Federal waterfront construction facility at Kings Bay"
-                    loading="lazy"
-                  />
-                </picture>
-                <figcaption>Federal construction</figcaption>
-              </figure>
+              {fieldPhotos.map((photo) => (
+                <figure key={photo.src}>
+                  <img src={photo.src} alt={photo.alt} loading="lazy" />
+                  <figcaption>{photo.caption}</figcaption>
+                </figure>
+              ))}
             </div>
           </div>
         </section>

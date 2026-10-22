@@ -3,13 +3,11 @@
 import { useEffect, useRef, useState } from 'react';
 
 const photos = [
-  { src: 'images/wetland-egret.webp', fallback: 'images/wetland-egret.jpg' },
-  { src: 'images/home/waterfront-development.webp' },
-  { src: 'images/home/fire-rescue-station.webp' },
-  { src: 'images/home/waterfront-construction.webp' },
-  { src: 'images/home/commercial-construction.webp' },
-  { src: 'images/home/site-grading.webp' },
-  { src: 'images/home/fire-rescue-project.webp' },
+  { src: '/images/wetland-egret.webp', fallback: '/images/wetland-egret.jpg' },
+  { src: '/images/field/pic7.webp' },
+  { src: '/images/field/pic5.webp' },
+  { src: '/images/field/pic1.webp' },
+  { src: '/images/field/pic3.webp' },
 ];
 
 function HeroPhoto({ index, entering = false, onAnimationEnd }: {
