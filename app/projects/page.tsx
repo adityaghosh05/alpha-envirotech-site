@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { PageHero } from '@/components/page-hero';
-import { ProjectCta } from '@/components/project-cta';
 import { ProjectMap } from '@/components/project-map';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
@@ -38,54 +37,6 @@ export default function ProjectsPage() {
             <ProjectMap />
           </div>
         </section>
-        <section className="section section-white">
-          <div className="site-shell">
-            <div className="section-heading split-heading">
-              <div>
-                <p className="eyebrow text-blue">Project environments</p>
-                <h2 className="section-title mt-4">
-                  Field conditions shape the work.
-                </h2>
-              </div>
-              <p className="section-intro">
-                Public infrastructure and federal construction settings call for
-                careful coordination, clear documentation, and responsive
-                environmental support.
-              </p>
-            </div>
-            <div className="project-image-grid mt-12">
-              <figure>
-                <picture>
-                  <source
-                    srcSet="/images/projects/arlington-water-reclamation.webp"
-                    type="image/webp"
-                  />
-                  <img
-                    src="/images/projects/arlington-water-reclamation.jpg"
-                    alt="Water reclamation facility infrastructure in Jacksonville"
-                    loading="lazy"
-                  />
-                </picture>
-                <figcaption>Public infrastructure</figcaption>
-              </figure>
-              <figure>
-                <picture>
-                  <source
-                    srcSet="/images/projects/kings-bay-federal-construction.webp"
-                    type="image/webp"
-                  />
-                  <img
-                    src="/images/projects/kings-bay-federal-construction.png"
-                    alt="Federal waterfront construction facility at Kings Bay"
-                    loading="lazy"
-                  />
-                </picture>
-                <figcaption>Federal construction</figcaption>
-              </figure>
-            </div>
-          </div>
-        </section>
-        <ProjectCta />
       </main>
       <SiteFooter />
     </>

@@ -23,7 +23,7 @@ export default function CareersPage() {
       <main>
         <PageHero
           eyebrow="Work with us"
-          title="Do the right thing. Do the work well."
+          title="Do the right thing and get the right thing done."
           description="AEC values quality technical work, professional responsibility, and the discipline to deliver work on time and on budget."
           image="engineering"
         />
