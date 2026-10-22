@@ -39,7 +39,12 @@ export default function Home() {
                 <a className="button" href="/contact/#get-in-touch">
                   Get in Touch <span aria-hidden="true">&#8594;</span>
                 </a>
-                <a className="button button-ghost" href="/services/">
+                <a
+                  className="button button-ghost"
+                  href="/documents/alpha-envirotech-capability-statement-2026.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Explore capabilities
                 </a>
               </div>
@@ -136,7 +141,7 @@ export default function Home() {
                 Built for accountable delivery
               </p>
               <h2 className="section-title mt-4 text-white">
-                Credibility you can put to work.
+                Capabilities you can put to work.
               </h2>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-white/68">
                 AEC is a woman-owned, minority-owned environmental consulting
@@ -154,7 +159,8 @@ export default function Home() {
               <div>
                 <Check aria-hidden="true" />
                 <span>
-                  <strong>Florida CA29370</strong>Engineering authorization
+                  <strong>Certified FL Engineering Firm</strong>
+                  Engineering authorization
                 </span>
               </div>
               <div>

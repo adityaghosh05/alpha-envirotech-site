@@ -3,7 +3,6 @@ import { ArrowRight, CheckCircle2, Upload } from 'lucide-react';
 import { PageHero } from '@/components/page-hero';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
-import { InternshipForm } from '@/components/internship-form';
 
 export const dynamic = 'force-static';
 
@@ -102,27 +101,11 @@ export default function CareersPage() {
                 how careful technical practice supports real projects.
               </p>
               <div className="career-panel-action">
-                <a className="button" href="#internship-application">
+                <a className="button" href="/careers/apply/">
                   Apply Now <ArrowRight aria-hidden="true" />
                 </a>
               </div>
             </article>
-          </div>
-        </section>
-        <section
-          id="internship-application"
-          className="section section-white scroll-target"
-        >
-          <div className="site-shell">
-            <div className="form-card internship-form-card">
-              <p className="eyebrow text-blue">Internship application</p>
-              <h2 className="section-title mt-4">Tell us about yourself.</h2>
-              <p className="mt-4 mb-8 max-w-2xl text-muted-foreground">
-                Share a few details about your studies and interests. Our team
-                will follow up with you.
-              </p>
-              <InternshipForm />
-            </div>
           </div>
         </section>
       </main>

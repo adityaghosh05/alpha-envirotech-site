@@ -289,9 +289,9 @@ export const markets = [
     number: '03',
     title: 'Development Consulting',
     copy: 'Early environmental insight for property, land-development, redevelopment, and commercial decision-making.',
-    image: '/images/home/commercial-construction.webp',
-    fallback: '/images/markets/commercial-construction.jpg',
-    alt: 'Commercial building and surrounding site during construction',
+    image: '/images/home/waterfront-development.webp',
+    fallback: '/images/markets/waterfront-development.jpg',
+    alt: 'Waterfront development site beside a marina',
   },
 ];
 
