@@ -3,11 +3,14 @@
 import { useEffect, useRef, useState } from 'react';
 
 const photos = [
-  { src: '/images/wetland-egret.webp', fallback: '/images/wetland-egret.jpg' },
-  { src: '/images/field/pic7.webp' },
-  { src: '/images/field/pic5.webp' },
   { src: '/images/field/pic1.webp' },
+  { src: '/images/field/pic2.webp' },
   { src: '/images/field/pic3.webp' },
+  { src: '/images/field/pic4.webp' },
+  { src: '/images/field/pic5.webp' },
+  { src: '/images/field/pic6.webp' },
+  { src: '/images/field/pic7.webp' },
+  { src: '/images/field/pic8.webp' },
 ];
 
 function HeroPhoto({ index, entering = false, onAnimationEnd }: {
@@ -21,10 +24,9 @@ function HeroPhoto({ index, entering = false, onAnimationEnd }: {
       className={entering ? 'hero-home-photo hero-home-photo-next' : 'hero-home-photo'}
       onAnimationEnd={onAnimationEnd}
     >
-      {photo.fallback && <source srcSet={photo.src} type="image/webp" />}
       <img
         className="hero-home-image"
-        src={photo.fallback ?? photo.src}
+        src={photo.src}
         alt=""
         fetchPriority={index === 0 ? 'high' : undefined}
       />
