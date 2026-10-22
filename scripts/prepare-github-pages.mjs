@@ -36,18 +36,28 @@ async function visit(directory) {
 await visit(root);
 
 if (process.env.GITHUB_PAGES_BASE_PATH || process.env.NEXT_PUBLIC_BASE_PATH) {
-  for (const entry of await fs.readdir(root, { withFileTypes: true })) {
-    if (
-      !entry.isFile() ||
-      !entry.name.endsWith('.html') ||
-      entry.name === '404.html' ||
-      entry.name === 'index.html'
-    )
-      continue;
-    const route = entry.name.slice(0, -'.html'.length);
-    const source = path.join(root, entry.name);
-    const destination = path.join(root, route, 'index.html');
-    await fs.mkdir(path.dirname(destination), { recursive: true });
-    await fs.rename(source, destination);
+  async function normalizeRoutes(directory) {
+    for (const entry of await fs.readdir(directory, { withFileTypes: true })) {
+      const source = path.join(directory, entry.name);
+      if (entry.isDirectory()) {
+        await normalizeRoutes(source);
+        continue;
+      }
+      if (
+        !entry.isFile() ||
+        !entry.name.endsWith('.html') ||
+        entry.name === '404.html' ||
+        entry.name === 'index.html'
+      ) {
+        continue;
+      }
+      const route = path
+        .relative(root, source)
+        .slice(0, -'.html'.length);
+      const destination = path.join(root, route, 'index.html');
+      await fs.mkdir(path.dirname(destination), { recursive: true });
+      await fs.rename(source, destination);
+    }
   }
+  await normalizeRoutes(root);
 }
