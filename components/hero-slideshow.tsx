@@ -3,14 +3,14 @@
 import { useEffect, useRef, useState } from 'react';
 
 const photos = [
-  { src: '/images/field/pic1.webp' },
-  { src: '/images/field/pic2.webp' },
-  { src: '/images/field/pic3.webp' },
-  { src: '/images/field/pic4.webp' },
-  { src: '/images/field/pic5.webp' },
-  { src: '/images/field/pic6.webp' },
-  { src: '/images/field/pic7.webp' },
-  { src: '/images/field/pic8.webp' },
+  { src: 'images/field/pic1.webp' },
+  { src: 'images/field/pic2.webp' },
+  { src: 'images/field/pic3.webp' },
+  { src: 'images/field/pic4.webp' },
+  { src: 'images/field/pic5.webp' },
+  { src: 'images/field/pic6.webp' },
+  { src: 'images/field/pic7.webp' },
+  { src: 'images/field/pic8.webp' },
 ];
 
 function HeroPhoto({ index, entering = false, onAnimationEnd }: {
