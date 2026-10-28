@@ -30,8 +30,7 @@ export default function ProjectsPage() {
               <p className="eyebrow text-blue">Regional project map</p>
               <h2 className="section-title mt-4">The places behind our work.</h2>
               <p className="section-intro mt-6">
-                Explore the cities and counties where AEC has worked across the
-                Southeast. Select a place on the map or in the list below it.
+                Explore the places where AEC has worked across the Southeast.
               </p>
             </div>
             <ProjectMap />

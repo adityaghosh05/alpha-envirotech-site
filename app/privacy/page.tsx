@@ -63,8 +63,7 @@ export default function PrivacyPage() {
             <p>
               You may contact us to ask about personal information you submitted
               through this site. Email{' '}
-              <a href="mailto:info@aenvirotech.com">info@aenvirotech.com</a> or
-              call <a href="tel:+19043820083">904.382.0083</a>.
+              <a href="mailto:info@aenvirotech.com">info@aenvirotech.com</a>.
             </p>
           </article>
         </section>

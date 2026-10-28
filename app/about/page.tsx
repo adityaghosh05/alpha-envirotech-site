@@ -177,20 +177,17 @@ export default function AboutPage() {
               </ul>
               <div className="prose-large mt-8">
                 <p>
-                  Amy Fu founded Alpha Envirotech Consulting in 2010 and leads
-                  the firm’s environmental engineering, science, and policy
-                  work. A licensed professional engineer, she remains closely
-                  involved in fieldwork and project delivery, working alongside
-                  senior staff to understand site conditions and help clients
-                  manage risk with clear, responsive judgment.
+                  Amy Fu founded Alpha Envirotech Consulting in 2010. As a
+                  licensed professional engineer, she has established AEC as
+                  one of the leading environmental engineering firms in the
+                  Southeast.
                 </p>
                 <p>
-                  Beyond AEC, Amy has served on Jacksonville’s Environmental
-                  Protection Board and Planning Commission and has supported
-                  environmental education and STEM mentorship. Her leadership is
-                  grounded in continuous learning, professional integrity,
-                  community service, and a belief that technical work should be
-                  done carefully and responsibly.
+                  Beyond AEC, she has been serving on the City of Jacksonville
+                  Environmental Protection Board and Planning Commission. She
+                  is an avid promoter of environmental education and STEM
+                  mentorship. Her leadership is grounded in continuous
+                  learning, professional integrity, and community service.
                 </p>
               </div>
             </div>

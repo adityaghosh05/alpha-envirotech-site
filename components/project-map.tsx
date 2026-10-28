@@ -1,6 +1,5 @@
 import { mapLocations } from '@/lib/site-data';
 
-const mapStates = ['Florida', 'Alabama', 'Mississippi', 'Georgia', 'South Carolina'];
 const stateLabels = [
   { name: 'Mississippi', x: 17, y: 16 },
   { name: 'Alabama', x: 40, y: 24 },
@@ -47,24 +46,6 @@ export function ProjectMap() {
             </button>
           ))}
         </div>
-      </div>
-      <figcaption>
-        Select a dot or a location below to see its name. Positions are
-        approximate; county locations use a central point.
-      </figcaption>
-      <div className="project-map-locations" aria-label="Map locations by state">
-        {mapStates.map((state) => (
-          <div className="project-map-location-group" key={state}>
-            <h3>{state}</h3>
-            <ul>
-              {mapLocations.filter((location) => location.state === state).map((location) => (
-                <li key={location.id}>
-                  <a href={`#map-${location.id}`}>{location.name}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
       </div>
     </figure>
   );

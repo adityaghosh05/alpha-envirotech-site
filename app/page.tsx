@@ -32,8 +32,8 @@ export default function Home() {
                 Prepared. <span>Qualified.</span> Experienced.
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-white/84 sm:text-xl">
-                Practical, cross-disciplinary solutions for environmental risk,
-                permitting, engineering, construction, and compliance.
+                Practical, cross-disciplinary solutions for environmental,
+                engineering, and construction support.
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <a className="button" href="/contact/#get-in-touch">
@@ -103,9 +103,6 @@ export default function Home() {
                   <span className="card-number">{service.number}</span>
                   <h3>{service.title}</h3>
                   <p>{service.short}</p>
-                  <span className="card-link">
-                    View capabilities <ArrowRight aria-hidden="true" />
-                  </span>
                 </a>
               ))}
             </div>
@@ -144,9 +141,9 @@ export default function Home() {
                 Capabilities you can put to work.
               </h2>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-white/68">
-                AEC is a woman-owned, minority-owned environmental consulting
-                and engineering firm prepared to support public agencies, prime
-                contractors, and commercial teams.
+                AEC is a minority- and women-owned environmental consulting and
+                engineering firm. We are one of the
+                Southeast’s top environmental engineering and consulting firms.
               </p>
             </div>
             <div className="credentials-panel">
@@ -187,11 +184,9 @@ export default function Home() {
               </a>
             </div>
             <div className="experience-preview-grid mt-10">
-              {projectHighlights.slice(0, 3).map((item, index) => (
+              {projectHighlights.slice(0, 4).map((item) => (
                 <article className="experience-preview" key={item.title}>
-                  <span>
-                    {String(index + 1).padStart(2, '0')} / {item.type}
-                  </span>
+                  <span>{item.type}</span>
                   <h3>{item.title}</h3>
                   <p>{item.summary}</p>
                 </article>

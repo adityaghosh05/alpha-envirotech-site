@@ -620,8 +620,11 @@ img {
   display: flex;
   min-height: 23rem;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background: #fff;
   padding: clamp(1.5rem, 3vw, 2.2rem);
+  text-align: center;
   transition:
     background-color 180ms ease,
     color 180ms ease;
@@ -642,7 +645,7 @@ img {
   letter-spacing: 0.08em;
 }
 .service-card h3 {
-  margin-top: auto;
+  margin-top: 1rem;
   font-family: var(--font-display), sans-serif;
   font-size: 2rem;
   font-weight: 600;
@@ -650,6 +653,7 @@ img {
 }
 .service-card p {
   margin-top: 0.85rem;
+  max-width: 25rem;
   color: var(--muted-foreground);
   line-height: 1.55;
 }
@@ -723,10 +727,15 @@ img {
   gap: 1rem;
 }
 .experience-preview {
+  display: flex;
   min-height: 20rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border: 1px solid var(--border);
   border-radius: 1rem;
   padding: 1.8rem;
+  text-align: center;
 }
 .experience-preview > span {
   color: var(--blue);
@@ -736,7 +745,7 @@ img {
   text-transform: uppercase;
 }
 .experience-preview h3 {
-  margin-top: 5rem;
+  margin-top: 2rem;
   font-family: var(--font-display), sans-serif;
   font-size: 2.2rem;
   font-weight: 600;
@@ -744,6 +753,7 @@ img {
 }
 .experience-preview p {
   margin-top: 1rem;
+  max-width: 34rem;
   color: var(--muted-foreground);
   line-height: 1.6;
 }
@@ -1811,7 +1821,7 @@ img {
     grid-template-columns: minmax(0, 1.1fr) minmax(20rem, 0.7fr);
   }
   .experience-preview-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .service-index {
     grid-template-columns: repeat(3, minmax(0, 1fr));

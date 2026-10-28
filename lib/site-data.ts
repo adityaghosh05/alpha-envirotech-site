@@ -84,7 +84,7 @@ export const serviceGroups = [
     number: '02',
     title: 'Construction Support Services',
     short:
-      'Carry environmental requirements into the field from mobilization through closeout.',
+      'Carry environmental requirements into the field from planning through closeout.',
     intro:
       'AEC integrates environmental planning, compliance, field oversight, and responsive technical support into active construction programs.',
     capabilities: [
@@ -98,6 +98,10 @@ export const serviceGroups = [
       },
       {
         title: 'Air Quality Management',
+        details: [],
+      },
+      {
+        title: 'Health and Safety',
         details: [],
       },
       {
@@ -124,7 +128,7 @@ export const serviceGroups = [
         details: [],
       },
       {
-        title: 'Maritime and Underwater Archaeology (AAUS Certification)',
+        title: 'Maritime Archaeology',
         details: [],
       },
       {
@@ -142,9 +146,9 @@ export const serviceGroups = [
     number: '04',
     title: 'Ecological Services',
     short:
-      'Address ecological, cultural, and workplace considerations early in project planning.',
+      'Address ecological constraints, permitting, and compliance throughout projects.',
     intro:
-      'AEC supports responsible project decisions where natural resources, cultural resources, and industrial-hygiene needs intersect with development and construction.',
+      'Address ecological constraints, permitting, and compliance needs that intersect with development and construction.',
     capabilities: [
       {
         title: 'Wetlands and Surface Water',
@@ -169,9 +173,9 @@ export const serviceGroups = [
     number: '05',
     title: 'Engineering Services',
     short:
-      'Turn field observations and technical data into clear, defensible decisions.',
+      'Turn field observations and technical data into clear, defensible solutions.',
     intro:
-      'AEC connects engineering judgment, field characterization, and environmental chemistry to define site conditions and guide practical next steps.',
+      'AEC connects engineering judgment, field characterization, and environmental chemistry to deliver engineering solutions and guide practical next steps.',
     capabilities: [
       {
         title: 'Environmental Engineering',
@@ -192,9 +196,9 @@ export const serviceGroups = [
     number: '06',
     title: 'Industrial Hygiene Services',
     short:
-      'Translate air-quality and stormwater requirements into usable project plans.',
+      'Addressing indoor air quality and health hazards to support regulatory compliance and worker safety.',
     intro:
-      'AEC helps clients evaluate air pathways, plan mitigation, and document environmental requirements for construction and ongoing compliance.',
+      'AEC helps clients evaluate indoor air quality and health hazards to address regulatory compliance and worker safety.',
     capabilities: [
       {
         title: 'Asbestos',
@@ -223,24 +227,31 @@ export const serviceGroups = [
 export const projectHighlights = [
   {
     type: 'Environmental due diligence',
-    title: 'Phase I & II site assessment support',
+    title: 'Phase I, II, III, and IV Site Assessments and Closure',
     summary:
-      'Environmental site assessments and follow-on investigation support for property, infrastructure, and redevelopment decisions.',
+      'Environmental site assessments and regulatory support for property, infrastructure, and redevelopment decisions.',
     tags: ['Site assessment', 'Commercial', 'Public sector'],
   },
   {
     type: 'Assessment & remediation',
-    title: 'Petroleum-impacted site programs',
+    title: 'Petroleum-Impacted Sites',
     summary:
       'Assessment, remedial planning, engineering, and regulatory coordination for petroleum-impacted soil and groundwater conditions.',
     tags: ['Remediation', 'Groundwater', 'Compliance'],
   },
   {
     type: 'Transportation & ecology',
-    title: 'Roadway and bridge environmental support',
+    title: 'Roadway and Bridge Environmental Support',
     summary:
-      'Wetland, wildlife, permitting, and natural-resource services supporting transportation planning and construction delivery.',
+      'Contamination, wetland, protected species, cultural resources, permitting, and compliance services supporting transportation planning and construction delivery.',
     tags: ['Wetlands', 'Permitting', 'Transportation'],
+  },
+  {
+    type: 'Vertical construction',
+    title: 'Construction Support',
+    summary:
+      'Environmental planning, permitting, compliance, health and safety, and waste management for vertical construction projects.',
+    tags: ['Construction', 'Compliance', 'Field support'],
   },
   {
     type: 'Utilities & construction',
