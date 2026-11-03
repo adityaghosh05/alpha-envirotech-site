@@ -1,7 +1,7 @@
 'use client';
 
 import Script from 'next/script';
-import { type SyntheticEvent, useRef, useState } from 'react';
+import { type SyntheticEvent, useEffect, useRef, useState } from 'react';
 import { CheckCircle2, LoaderCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Field, FieldGroup, FieldLabel } from '@/components/ui/field';
@@ -10,6 +10,7 @@ import { Textarea } from '@/components/ui/textarea';
 
 declare global {
   interface Window {
+    AEC_TURNSTILE_SITE_KEY?: string;
     turnstile?: {
       render: (
         element: HTMLElement,
@@ -27,6 +28,7 @@ type FormStatus = {
 
 const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 const isGitHubPages = process.env.NEXT_PUBLIC_GITHUB_PAGES === 'true';
+const isWordPress = process.env.NEXT_PUBLIC_WORDPRESS === 'true';
 
 function getFormValue(formData: FormData, name: string) {
   const value = formData.get(name);
@@ -38,20 +40,26 @@ export function InquiryForm() {
   const widgetRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | undefined>(undefined);
   const [turnstileToken, setTurnstileToken] = useState('');
+  const [siteKey, setSiteKey] = useState(turnstileSiteKey || '');
   const [status, setStatus] = useState<FormStatus>({ kind: 'idle' });
+
+  useEffect(() => {
+    if (isWordPress && window.AEC_TURNSTILE_SITE_KEY)
+      setSiteKey(window.AEC_TURNSTILE_SITE_KEY);
+  }, []);
 
   function renderTurnstile() {
     if (
-      !turnstileSiteKey ||
+      !siteKey ||
       !window.turnstile ||
       !widgetRef.current ||
       widgetIdRef.current
     )
       return;
     widgetIdRef.current = window.turnstile.render(widgetRef.current, {
-      sitekey: turnstileSiteKey,
+      sitekey: siteKey,
       action: 'project_inquiry',
-      appearance: 'interaction-only',
+      appearance: 'always',
       size: 'flexible',
       callback: (token: string) => setTurnstileToken(token),
       'expired-callback': () => setTurnstileToken(''),
@@ -61,7 +69,7 @@ export function InquiryForm() {
 
   async function onSubmit(event: SyntheticEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!isGitHubPages && turnstileSiteKey && !turnstileToken) {
+    if ((!isGitHubPages || isWordPress) && (!siteKey || !turnstileToken)) {
       setStatus({
         kind: 'error',
         message: 'Please complete the verification and try again.',
@@ -72,10 +80,9 @@ export function InquiryForm() {
     setStatus({ kind: 'submitting' });
     const formData = new FormData(event.currentTarget);
 
-    // GitHub Pages cannot run the server-side inquiry route. Keep the form
-    // functional there by handing a complete, pre-addressed draft to the
-    // visitor's email application.
-    if (isGitHubPages) {
+    // GitHub Pages has no server. Keep that standalone build usable via email;
+    // WordPress uses its authenticated server-side inquiry endpoint below.
+    if (isGitHubPages && !isWordPress) {
       const firstName = getFormValue(formData, 'firstName');
       const lastName = getFormValue(formData, 'lastName');
       const organization = getFormValue(formData, 'organization');
@@ -102,17 +109,22 @@ export function InquiryForm() {
     const payload = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch('/api/inquiries', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...payload,
-          turnstileToken: turnstileToken || 'local-preview',
-          submissionId: crypto.randomUUID(),
-        }),
-      });
+      const response = await fetch(
+        isWordPress ? '/wp-json/aenviro/v1/inquiries' : '/api/inquiries',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            ...payload,
+            formType: 'contact',
+            turnstileToken: turnstileToken || 'local-preview',
+            submissionId: crypto.randomUUID(),
+          }),
+        },
+      );
       const result = (await response.json()) as {
         ok: boolean;
+        preview?: boolean;
         message?: string;
       };
       if (!response.ok || !result.ok)
@@ -120,8 +132,9 @@ export function InquiryForm() {
 
       setStatus({
         kind: 'success',
-        message:
-          'Thank you. Your inquiry has been received, and our team will follow up soon.',
+        message: result.preview
+          ? 'Verification passed. This local preview did not send an email.'
+          : 'Thank you. Your inquiry has been received, and our team will follow up soon.',
       });
       formRef.current?.reset();
       setTurnstileToken('');
@@ -140,7 +153,7 @@ export function InquiryForm() {
 
   return (
     <>
-      {!isGitHubPages && turnstileSiteKey && (
+      {(!isGitHubPages || isWordPress) && siteKey && (
         <Script
           src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
           strategy="afterInteractive"
@@ -222,13 +235,13 @@ export function InquiryForm() {
             />
           </div>
 
-          {!isGitHubPages && turnstileSiteKey ? (
+          {(!isGitHubPages || isWordPress) && siteKey ? (
             <div
               ref={widgetRef}
               className="turnstile-shell"
               aria-label="Spam verification"
             />
-          ) : !isGitHubPages ? (
+          ) : !isGitHubPages || isWordPress ? (
             <p className="form-note">
               Spam protection and email delivery will activate with launch
               credentials.

@@ -83,6 +83,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body id="top" className={`${display.variable} ${body.variable}`}>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              'window.AEC_TURNSTILE_SITE_KEY="__AEC_TURNSTILE_SITE_KEY__";',
+          }}
+        />
         {children}
         <script
           type="application/ld+json"

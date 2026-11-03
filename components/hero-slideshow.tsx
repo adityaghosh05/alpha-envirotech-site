@@ -2,15 +2,21 @@
 
 import { useEffect, useRef, useState } from 'react';
 
+// The WordPress theme stores static assets below the theme's `site` folder.
+// Keep the project-relative path for GitHub Pages and local previews.
+const imageRoot = process.env.NEXT_PUBLIC_WORDPRESS === 'true'
+  ? '/wp-content/themes/alpha-envirotech/site'
+  : '.';
+
 const photos = [
-  { src: 'images/field/pic1.webp' },
-  { src: 'images/field/pic2.webp' },
-  { src: 'images/field/pic3.webp' },
-  { src: 'images/field/pic4.webp' },
-  { src: 'images/field/pic5.webp' },
-  { src: 'images/field/pic6.webp' },
-  { src: 'images/field/pic7.webp' },
-  { src: 'images/field/pic8.webp' },
+  { src: `${imageRoot}/images/field/pic1.webp` },
+  { src: `${imageRoot}/images/field/pic2.webp` },
+  { src: `${imageRoot}/images/field/pic3.webp` },
+  { src: `${imageRoot}/images/field/pic4.webp` },
+  { src: `${imageRoot}/images/field/pic5.webp` },
+  { src: `${imageRoot}/images/field/pic6.webp` },
+  { src: `${imageRoot}/images/field/pic7.webp` },
+  { src: `${imageRoot}/images/field/pic8.webp` },
 ];
 
 function HeroPhoto({ index, entering = false, onAnimationEnd }: {

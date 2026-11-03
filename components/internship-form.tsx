@@ -1,7 +1,7 @@
 'use client';
 
 import Script from 'next/script';
-import { type FormEvent, useRef, useState } from 'react';
+import { type FormEvent, useEffect, useRef, useState } from 'react';
 import { CheckCircle2, LoaderCircle } from 'lucide-react';
 import { Field, FieldGroup, FieldLabel } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 
 declare global {
   interface Window {
+    AEC_TURNSTILE_SITE_KEY?: string;
     turnstile?: {
       render: (
         element: HTMLElement,
@@ -22,6 +23,7 @@ declare global {
 
 const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 const isGitHubPages = process.env.NEXT_PUBLIC_GITHUB_PAGES === 'true';
+const isWordPress = process.env.NEXT_PUBLIC_WORDPRESS === 'true';
 
 type Status = {
   kind: 'idle' | 'submitting' | 'success' | 'error';
@@ -33,15 +35,26 @@ export function InternshipForm() {
   const widgetRef = useRef<HTMLDivElement>(null);
   const widgetId = useRef<string | undefined>(undefined);
   const token = useRef('');
+  const [runtimeSiteKey, setRuntimeSiteKey] = useState(siteKey || '');
   const [status, setStatus] = useState<Status>({ kind: 'idle' });
 
+  useEffect(() => {
+    if (isWordPress && window.AEC_TURNSTILE_SITE_KEY)
+      setRuntimeSiteKey(window.AEC_TURNSTILE_SITE_KEY);
+  }, []);
+
   function renderTurnstile() {
-    if (!siteKey || !window.turnstile || !widgetRef.current || widgetId.current)
+    if (
+      !runtimeSiteKey ||
+      !window.turnstile ||
+      !widgetRef.current ||
+      widgetId.current
+    )
       return;
     widgetId.current = window.turnstile.render(widgetRef.current, {
-      sitekey: siteKey,
+      sitekey: runtimeSiteKey,
       action: 'project_inquiry',
-      appearance: 'interaction-only',
+      appearance: 'always',
       size: 'flexible',
       callback: (value: string) => {
         token.current = value;
@@ -57,7 +70,10 @@ export function InternshipForm() {
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!isGitHubPages && siteKey && !token.current) {
+    if (
+      (!isGitHubPages || isWordPress) &&
+      (!runtimeSiteKey || !token.current)
+    ) {
       setStatus({
         kind: 'error',
         message: 'Please complete the verification and try again.',
@@ -67,7 +83,7 @@ export function InternshipForm() {
     setStatus({ kind: 'submitting' });
     const formData = new FormData(event.currentTarget);
     const application = Object.fromEntries(formData.entries());
-    if (isGitHubPages) {
+    if (isGitHubPages && !isWordPress) {
       const {
         firstName,
         lastName,
@@ -97,25 +113,31 @@ export function InternshipForm() {
       return;
     }
     try {
-      const response = await fetch('/api/inquiries', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...application,
-          formType: 'internship',
-          turnstileToken: token.current || 'local-preview',
-          submissionId: crypto.randomUUID(),
-        }),
-      });
+      const response = await fetch(
+        isWordPress ? '/wp-json/aenviro/v1/inquiries' : '/api/inquiries',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            ...application,
+            formType: 'internship',
+            turnstileToken: token.current || 'local-preview',
+            submissionId: crypto.randomUUID(),
+          }),
+        },
+      );
       const result = (await response.json()) as {
         ok: boolean;
+        preview?: boolean;
         message?: string;
       };
       if (!response.ok || !result.ok)
         throw new Error(result.message || 'Unable to send your application.');
       setStatus({
         kind: 'success',
-        message: 'Thank you. Your internship application has been received.',
+        message: result.preview
+          ? 'Verification passed. This local preview did not send an email.'
+          : 'Thank you. Your internship application has been received.',
       });
       formRef.current?.reset();
       token.current = '';
@@ -134,7 +156,7 @@ export function InternshipForm() {
 
   return (
     <>
-      {!isGitHubPages && siteKey && (
+      {(!isGitHubPages || isWordPress) && runtimeSiteKey && (
         <Script
           src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
           strategy="afterInteractive"
@@ -244,12 +266,17 @@ export function InternshipForm() {
               autoComplete="off"
             />
           </div>
-          {!isGitHubPages && siteKey ? (
+          {(!isGitHubPages || isWordPress) && runtimeSiteKey ? (
             <div
               ref={widgetRef}
               className="turnstile-shell"
               aria-label="Spam verification"
             />
+          ) : !isGitHubPages || isWordPress ? (
+            <p className="form-note">
+              Spam protection and email delivery will activate with launch
+              credentials.
+            </p>
           ) : null}
           <Button
             type="submit"
